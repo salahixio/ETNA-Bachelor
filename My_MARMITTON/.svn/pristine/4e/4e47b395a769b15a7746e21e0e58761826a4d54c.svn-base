@@ -1,0 +1,26 @@
+/**
+ * Created by antoine on 27/01/2016.
+ */
+
+function add_step()
+{
+    var steps = document.getElementById("steps");
+    var textareas = steps.getElementsByTagName("textarea");
+    var step = textareas[textareas.length - 1];
+    step = step.id;
+    step = step.split("_");
+    step = 1 + +step[1];
+    $('<div class="row"><div class="input-field col s12"><textarea id="step_'+step+'" class="materialize-textarea" name="step_'+step+'"></textarea> <label for="step_'+step+'">Etape '+step+'</label></div></div>').appendTo($('#steps'));
+}
+
+function add_ingredients()
+{
+    var ingredients = document.getElementById("ingredients");
+    var selects = ingredients.getElementsByTagName("select");
+    var ingredient = selects[selects.length - 1];
+    ingredient = ingredient.id;
+    ingredient = ingredient.split("_");
+    ingredient = 1 + +ingredient[1];
+    $('<div class="row"><div class="input-field col s4"> <input id="quantite_'+ingredient+'" type="number" class="validate" name="quantite_'+ingredient+'"> <label for="quantite_'+ingredient+'">Quantité</label> </div> <div class="input-field col s4"> <select id="unite_'+ingredient+'" name="unite_'+ingredient+'"> <option value="pincee">Pincée</option> <option value="kg">Kg</option> <option value="feuille">Feuille</option> <option value="ml">Ml</option> </select> <label>Unité</label> </div> <div class="input-field col s4"> <input id="name_ingredient_'+ingredient+'" type="text" class="validate" name="name_ingredient_'+ingredient+'"> <label for="name_ingredient_'+ingredient+'">Nom de l\'ingrédient</label></div></div>').appendTo($('#ingredients'));
+    $('#unite_'+ingredient).material_select();
+}

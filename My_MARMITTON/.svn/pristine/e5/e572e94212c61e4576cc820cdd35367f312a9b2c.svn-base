@@ -1,0 +1,28 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: antoine
+ * Date: 12/02/2016
+ * Time: 16:06
+ */
+include "Include/header.php";
+?>
+<div class="slider fullscreen">
+    <ul class="slides">
+        <?php
+        $i=1;
+        foreach ($this->_infos as $value) {
+            echo '<li>';
+            echo '<div class="caption center-align">';
+            echo '<h3 class="black-text">Etape ' . $i . '</h3>';
+            echo '<h5 class="black-text">' . $value . '</h5>';
+            echo '</div>';
+            echo '</li>';
+            $i++;
+        }
+        ?>
+    </ul>
+</div>
+<?php
+include "Include/footer.php";
+?>

@@ -1,0 +1,36 @@
+nav ul a,
+nav .brand-logo {
+    color: #444;
+}
+
+p {
+    line-height: 2rem;
+}
+
+.icon-block {
+    padding: 0 15px;
+}
+.icon-block .material-icons {
+    font-size: inherit;
+}
+
+nav
+{
+    margin-left: 5%;
+    width: 90%;
+    background-color: #E6E6E6;
+    padding-left:10px;
+}
+
+body
+{
+    background-color: #BEBFC4;
+}
+
+.container
+{
+    padding:10px;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.16), 0px 2px 10px 0px rgba(0, 0, 0, 0.12);
+    background-color: #E6E6E6;
+    width: 90%;
+}

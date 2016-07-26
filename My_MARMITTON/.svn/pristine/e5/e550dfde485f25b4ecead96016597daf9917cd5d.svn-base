@@ -1,0 +1,47 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: antoine
+ * Date: 10/02/2016
+ * Time: 14:27
+ */
+require_once "Model/Database.php";
+
+class SearchRecipeController
+{
+    private $_infos;
+
+    public function __construct($infos_recipe)
+    {
+        $this->_infos=$this->search($infos_recipe);
+    }
+
+    public function search($infos_recipe)
+    {
+        print_r($infos_recipe);
+        //echo $infos_recipe['title'];
+        $tmp3=array();
+        $i=1;
+        while (isset ($search['name_ingredient_'.$i]))
+        {
+            $data['ingredient'][$i-1] = $infos_recipe['name_ingredient_'.$i];
+            $tmp3[$i-1] = $tmp2;
+            $i++;
+        }
+        $data['ingredients'] = $tmp3;
+        $i=0;
+        while (isset ($infos_recipe['categorie'][$i]))
+        {
+            $data['category'][$i] = $infos_recipe['categorie'][$i];
+            $i++;
+        }
+        $data['name_recipe'] = $infos_recipe['title'];
+        $search = new SearchRecipeController($data);
+        return $search;
+    }
+
+    public function getView()
+    {
+        require 'View/resume_search.php';
+    }
+}

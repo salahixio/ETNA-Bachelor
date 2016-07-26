@@ -1,0 +1,71 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: antoine
+ * Date: 10/02/2016
+ * Time: 10:22
+ */
+include "Include/header.php";
+include "Include/nav.php";
+include "Include/modal.html";
+
+?>
+<div class="container" id="page">
+    <div class="row">
+        <div class="col s12 m6">
+            <img src="<?php echo $this->_infos['picture'] ?>" class="responsive-img">
+        </div>
+        <div class="col s12 m6">
+            <h5><?php echo $this->_infos['name_recette'] ?> <span id="min">(Créé par <?php echo $this->_infos['creator_pseudo'] ." le ". date('d/m/Y',time($this->_infos['date_create'])) ?>)</span></h5>
+            <h6>Ingrédients : </h6>
+            <ul>
+                <?php
+                foreach ($this->_infos['ingredients'] as $ingredient) {
+                    echo '<li>'.$ingredient['value']." ".$ingredient['name_quantity']." ".$ingredient['name_ingredient'].'</li>';
+                }
+                ?>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 m6">
+            <div>
+                <h6>Préparation : <a href="index.php?full_screen_slider=1">(Passer en mode cuisine)</a></h6>
+                <br />
+            </div>
+            <div style="text-align: justify">
+                <?php
+                foreach ($this->_infos['step'] as $step) {
+                    echo $step . " ";
+                }
+                ?>
+            </div>
+        </div>
+        <div class="col s12 m6">
+            <?php
+            foreach ($this->_infos['category'] as $category) {
+                echo '<div class="chip" style="background-color: #8d6e63">'.$category.'</div>';
+            }
+            ?>
+            <?php
+            if (isset($this->_infos['avg_note']))
+                echo "<h5>Note : ".$this->_infos['avg_note']."/5</h5>"
+            ?>
+            <i onclick="remove_star_opacity(this);" class="star material-icons opacity">grade</i>
+            <i onclick="remove_star_opacity(this);" class="star material-icons opacity">grade</i>
+            <i onclick="remove_star_opacity(this);" class="star material-icons opacity">grade</i>
+            <i onclick="remove_star_opacity(this);" class="star material-icons opacity">grade</i>
+            <i onclick="remove_star_opacity(this);" class="star material-icons opacity">grade</i>
+            <span class="hidden" id="note">0</span>
+            <div class="input-field">
+                <textarea class="materialize-textarea" name="commentaires"></textarea>
+                <label for="commentaires">Commentaires</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+    </div>
+</div>
+<?php
+include "Include/footer.php";
+?>

@@ -1,0 +1,32 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: antoine
+ * Date: 16/02/2016
+ * Time: 22:55
+ */
+
+require_once "Controller/GlobalController.php";
+require_once "Model/Database.php";
+
+$glob = new GlobalController();
+
+
+if(isset($_GET['resume_recipe']) && isset($_GET['id'])) {
+    $glob->resumeRecipe($_GET['id']);
+}
+else if(isset($_GET['full_screen_slider'])) {
+    $glob->fullScreenSlider(1);
+}
+else if(isset($_GET['add_recipe'])) {
+    $glob->addRecipe();
+}
+else if(isset($_GET['create_recipe']) && isset($_POST)) {
+    $glob->createRecipe($_POST);
+}
+else
+    $glob->index();
+
+//Récupérer les données du formulaire pour la création et la recherche
+//Et envoyer le $_POST au controlleur qui créer un tableau et l'envoi au modéle
+

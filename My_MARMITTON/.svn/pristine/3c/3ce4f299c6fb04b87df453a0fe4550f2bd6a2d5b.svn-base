@@ -1,0 +1,84 @@
+<?php
+include "../Include/header.php";
+include "../Include/nav.php";
+?>
+
+    <div class="container" id="page">
+        <div class="section">
+            <div class="row">
+                <div class="col m6 s12 offset-m3">
+                    <h5>Entrez une recette</h5>
+                    <form>
+                        <input name="recette" id="recette" type="text" placeholder="Quelle recette vous interesse ?">
+                        <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">search</i></a>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="icon-block">
+                <h5 class="brown-text"><i class="material-icons">announcement</i>Dernières Recettes</h5>
+            </div>
+            <div class="row">
+                <div class="col s12 m3">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <img src="img/chevreuil.jpg">
+                        </div>
+                        <div class="card-action">
+                            <div class="chip">Antoine</div>
+                            </p>
+                            <p>Noisette de Chevreuil pour 4</p>
+                            <a href="#">Afficher la recette</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m3">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <img src="img/paella.png">
+                        </div>
+                        <div class="card-action">
+                            <div class="chip">B.X</div>
+                            <p>Paella de la mer prête en 1h</p>
+                            <a href="#">Afficher la recette</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="icon-block">
+                <h5 class="brown-text"><i class="material-icons">grade</i>Recettes populaire</h5>
+            </div>
+            <div class="row">
+                <div class="col s12 m3">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <img src="img/pates.jpg">
+                        </div>
+                        <div class="card-action">
+                            <div class="chip">Antoine</div>
+                            <p>Pates aux saumons pour 3 personnes. 20minutes</p>
+                            <a href="#">Afficher la recette</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m3">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <img src="img/kebab.jpg">
+                        </div>
+                        <div class="card-action">
+                            <div class="chip">B.X.</div>
+                            <p>Kefta oignons</p>
+                            <a href="#">Afficher la recette</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<?php
+include("../Include/footer.php");
+
+?>

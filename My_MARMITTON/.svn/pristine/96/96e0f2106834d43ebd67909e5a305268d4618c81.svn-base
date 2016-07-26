@@ -1,0 +1,49 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: antoine
+ * Date: 03/02/2016
+ * Time: 10:23
+ */
+include "../Include/header.php";
+include "../Include/nav.php";
+?>
+    <div class="container" id="page">
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">perm_identity</i>
+                    <input id="icon_prefix" type="text" class="validate">
+                    <label for="icon_prefix">Nom</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="last_name" type="text" class="validate">
+                    <label for="last_name">Prénom</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">email</i>
+                    <input id="icon_prefix" type="text" class="validate">
+                    <label for="icon_prefix">Email</label>
+                </div>
+            </div>
+            <p>
+                <input type="checkbox" id="entree" />
+                <label for="entree">Entrée</label>
+            </p>
+            <p>
+                <input type="checkbox" id="plat" />
+                <label for="plat">Plat</label>
+            </p>
+            <p>
+                <input type="checkbox" id="dessert" />
+                <label for="dessert">Dessert</label>
+            </p>
+        </form>
+    </div>
+<?php
+include "../Include/footer.php";
+?>
+
+

@@ -1,0 +1,16 @@
+<?php
+error_reporting(-1);
+ini_set('display_errors', 'On');
+date_default_timezone_set('UTC');
+try{
+$bdd =  (new PDO('mysql:host=localhost;port=9998;database=marmiton', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)));
+}
+catch(Exception $e){
+	echo $e;
+}
+$requete = "USE `marmiton`";
+$tmp = $bdd->prepare($requete)->execute();
+$sql = "SELECT * FROM `recipe`";
+$tmp = $bdd->query($sql)->fetch();
+print_r($tmp);
+?>

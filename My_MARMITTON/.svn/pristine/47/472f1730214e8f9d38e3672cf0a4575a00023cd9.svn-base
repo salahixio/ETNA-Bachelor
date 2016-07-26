@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: benoit-xavierhouvet
+ * Date: 23/02/2016
+ * Time: 11:38
+ */
+class autoimplement extends Database
+{
+    private $_bdd;
+    private $_ingre;
+
+    public function __construct()
+    {
+        $toto = new Database();
+        if (($toto->try_connection()) != FALSE) {
+            $this->_bdd = $toto->try_connection();
+            $this->_ingre=$this->find_ingre();
+        }
+        else
+            $this->_bdd = FALSE;
+    }
+
+    public function find_ingre()
+    {
+        $sql="SELECT name_ingredient FROM ingredient";
+        $ingre = $this->_bdd->query($sql)->fetchAll(PDO::FETCH_COLUMN);
+        $content = "$(function() {";
+        $content .= "var availableTags = [";
+        $i = 0;
+        foreach ($ingre as $ingredient)
+        {
+            if ($i == 0)
+                $content .= "\"".$ingredient."\"";
+            else
+                $content .= ",\"".$ingredient."\"";
+            $i++;
+        }
+        $content .= " ];";
+        return $content;
+    }
+    public function get_ingre()
+    {
+        return $this->_ingre;
+    }
+}
+

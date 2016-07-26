@@ -1,0 +1,87 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: antoine
+ * Date: 03/02/2016
+ * Time: 10:23
+ */
+include "../Include/header.php";
+include "../Include/nav.php";
+?>
+    <div class="container" id="page">
+        <form class="col s12" method="post" action="../Controller/CreateRecipeController.php" >
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="pseudo" type="text" class="validate" name="pseudo">
+                    <label for="pseudo">Pseudo</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">email</i>
+                    <input id="email" type="text" class="validate" name="email">
+                    <label for="email">Email</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="title" type="text" class="validate" name="title">
+                    <label for="title">Titre</label>
+                </div>
+            </div>
+            <h4>Catégories</h4>
+            <div class="row">
+                <div class="input-field col s4">
+                    <select multiple id="categorie" name="categorie">
+                        <option value="0"></option>
+                        <option value="1">Dessert</option>
+                        <option value="2">Plat asiatique</option>
+                        <option value="3">Plat marocain</option>
+                    </select>
+                    <label>Catégories</label>
+                </div>
+            </div>
+            <h4>Ingrédients</h4>
+            <div class="row">
+                <div class="input-field col s4">
+                    <input id="quantite" type="number" class="validate" name="quantite">
+                    <label for="quantite">Quantité</label>
+                </div>
+                <div class="input-field col s4">
+                    <select id="unite" name="unite">
+                        <option value="1">Pincée</option>
+                        <option value="2">Kg</option>
+                        <option value="3">Feuille</option>
+                        <option value="4">Ml</option>
+                    </select>
+                    <label>Unité</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="name_ingredient" type="text" class="validate" name="name_ingredient">
+                    <label for="name_ingredient">Nom de l'ingrédient</label>
+                </div>
+            </div>
+            <p>
+                <a class="btn-floating btn waves-effect waves-light red"><i class="material-icons">add</i></a>
+            </p>
+            <h4>Etapes</h4>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="step1" class="materialize-textarea" name="step1"></textarea>
+                    <label for="step1">Etape 1</label>
+                </div>
+            </div>
+            <p>
+                <a class="btn-floating btn waves-effect waves-light red"><i class="material-icons">add</i></a>
+            </p>
+            <p>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Ajouter
+                    <i class="material-icons right">send</i>
+                </button>
+            </p>
+        </form>
+    </div>
+<?php
+include "../Include/footer.php";
+?>
+
+

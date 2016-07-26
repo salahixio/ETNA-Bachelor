@@ -1,0 +1,46 @@
+<!-- Modal Structure -->
+<div id="search-modal" class="modal">
+    <form method="post" action="index.php?create_search=1">
+        <div class="modal-content">
+            <h4>Rechercher</h4>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="title" name="title" type="text" class="validate">
+                    <label for="title">Titre</label>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="input-field col s4">
+                    <select multiple name="ingredients">
+                        <option value="0"></option>
+                        <option value="1">Salade</option>
+                        <option value="2">Tomates</option>
+                        <option value="3">Oignons</option>
+                    </select>
+                    <label>Ingrédients</label>
+                </div>
+                <div class="input-field col s4">
+                    <select multiple name="categories">
+                        <option value="0"></option>
+                        <option value="1">Dessert</option>
+                        <option value="2">Plat asiatique</option>
+                        <option value="3">Plat marocain</option>
+                    </select>
+                    <label>Catégories</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="range-field col s4">
+                    <input type="range" id="percent" name="percent" min="70" max="100" value="70"/>
+                    <label for="percent">Poucentage de ressemblance</label>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn waves-effect waves-light modal-action modal-close" type="submit" name="action">J'ai faim !
+                <i class="material-icons right">send</i>
+            </button>
+        </div>
+    </form>
+</div>

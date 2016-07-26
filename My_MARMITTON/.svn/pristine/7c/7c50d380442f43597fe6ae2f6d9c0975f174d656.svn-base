@@ -1,0 +1,101 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: antoine
+ * Date: 03/02/2016
+ * Time: 10:23
+ */
+include "Include/header.php";
+include "Include/nav.php";
+include "Include/modal.html";
+?>
+    <div class="container" id="page">
+        <form class="col s12" method="post" action="index.php?create_recipe=1" >
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="pseudo" type="text" class="validate" name="pseudo">
+                    <label for="pseudo">Pseudo</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">email</i>
+                    <input id="email" type="text" class="validate" name="email">
+                    <label for="email">Email</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="title" type="text" class="validate" name="title">
+                    <label for="title">Titre</label>
+                </div>
+                <div class="file-field input-field col s6">
+                    <div class="btn">
+                        <span>File</span>
+                        <input type="file" name="picture">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div>
+            </div>
+            <h4>Catégories</h4>
+            <div class="row">
+                <div class="input-field col s4">
+                    <select multiple id="categorie" name="categorie[]">
+                        <option value="0"></option>
+                        <option value="Dessert">Dessert</option>
+                        <option value="Asiatique">Plat asiatique</option>
+                        <option value="Marocain">Plat marocain</option>
+                    </select>
+                    <label>Catégories</label>
+                </div>
+            </div>
+            <h4>Ingrédients</h4>
+            <div id="ingredients">
+                <div class="row">
+                    <div class="input-field col s4">
+                        <input id="quantite_1" type="number" class="validate" name="quantite_1">
+                        <label for="quantite_1">Quantité</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <select id="unite_1" name="unite_1">
+                            <option value="pincee">Pincée</option>
+                            <option value="kg">Kg</option>
+                            <option value="feuille">Feuille</option>
+                            <option value="ml">Ml</option>
+                        </select>
+                        <label>Unité</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="name_ingredient_1" type="text" class="validate" name="name_ingredient_1">
+                        <label for="name_ingredient_1">Nom de l'ingrédient</label>
+                    </div>
+                </div>
+            </div>
+            <p>
+                <a class="btn-floating btn waves-effect waves-light red" onclick="add_ingredients();"><i class="material-icons">add</i></a>
+            </p>
+            <h4>Etapes</h4>
+            <div id="steps">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="step_1" class="materialize-textarea" name="step_1"></textarea>
+                        <label for="step_1">Etape 1</label>
+                    </div>
+                </div>
+            </div>
+            <p>
+                <a class="btn-floating btn waves-effect waves-light red" onclick="add_step();"><i class="material-icons">add</i></a>
+            </p>
+            <p>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Ajouter
+                    <i class="material-icons right">send</i>
+                </button>
+            </p>
+        </form>
+    </div>
+<?php
+include "Include/footer.php";
+?>
+
+

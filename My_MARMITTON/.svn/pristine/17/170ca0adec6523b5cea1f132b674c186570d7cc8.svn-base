@@ -1,0 +1,341 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+</html>
+<?php
+error_reporting(-1);
+ini_set('display_errors', 'On');
+date_default_timezone_set('UTC');
+class Database 
+{
+	public function try_connection()
+	{
+		try
+		{
+			$bdd =  (new PDO('mysql:host=localhost;port=9998;', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)));
+			$bdd->query("SET NAMES utf8");
+		}
+		catch(PDOException $e)
+		{
+			return FALSE;
+		}
+		return $bdd;
+	}
+}
+
+class find_recipe extends Database
+{
+    private $_table;
+	private $_bdd;
+	private $_avg_notes;
+	private $_ingredients;
+
+	public function __construct()
+	{
+		$toto = new Database();
+		if (($toto->try_connection()) != FALSE)
+		{
+			$this->_bdd =  $toto->try_connection();
+		}
+		else
+		{
+			$this->_bdd=FALSE;
+		}
+	}
+
+	/*
+		Renvoyer tableau (plus pratique dans le controlleur pour encoder en Json).
+	*/
+
+	public function search_recipe_id($indice)
+	{
+        $requete = "USE marmiton";
+        $toto = ($this->_bdd)->query($requete);
+		$sql = "SELECT * FROM recipe WHERE id_recette=".$indice;
+		$recipe = ($this->_bdd)->query($sql)->fetch(PDO::FETCH_ASSOC);
+		$id_creator = $recipe['id_creator'];
+		$sql4 = "SELECT pseudo, mail FROM creator WHERE id_creator=".$id_creator;
+		$creator = ($this->_bdd)->query($sql4)->fetch(PDO::FETCH_ASSOC);
+		$recipe['creator_pseudo']=$creator['pseudo'];
+		$recipe['creator_mail']=$creator['mail'];
+        $sql2 = "SELECT id_category FROM quantity_category WHERE id_recipe=".$recipe['id_recette'];
+        $tmp = ($this->_bdd)->query($sql2)->fetchAll(PDO::FETCH_ASSOC);
+		$i=0;
+		while (isset($tmp[$i]['id_category']))
+		{
+			$sql3 = "SELECT name_category FROM category WHERE id_category=".$tmp[$i]['id_category'];
+			$tmp2 = ($this->_bdd)->query($sql3)->fetch();
+			$tmp3[$i] = $tmp2['name_category'];
+			$i++;
+		}
+		$sql5 = "SELECT step FROM step WHERE id_recipe=".$indice." ORDER BY number_step";
+		$tmp4 = ($this->_bdd)->query($sql5)->fetchAll(PDO::FETCH_ASSOC);
+		$i=0;
+		while (isset($tmp4[$i]['step']))
+		{
+			$tmp5[$i] =  $tmp4[$i]['step'];
+			$i++;
+		}
+		$recipe['step'] = $tmp5;
+		$recipe['category'] = $tmp3;
+		$recipe['avg_note'] = $this->show_avg($indice);
+		$recipe['ingredients'] = $this->show_ingredient($indice);
+        return $recipe;
+	}
+
+	public function search_notes_id_recipe($indice)
+	{
+		$requete = "USE marmiton";
+		$toto = ($this->_bdd)->query($requete);
+		$requete2 = "SELECT AVG(`note`) FROM `notes` WHERE id_recipe=".$indice;
+		$note = ($this->_bdd)->query($requete2)->fetch();
+		if ($note[0] == FALSE)
+			return "0";
+		else
+			return round($note[0], 2);
+	}
+
+	public function search_ingredient_id($indice)
+	{
+		$requete = "USE marmiton";
+		$toto = ($this->_bdd)->query($requete);
+		$sql = "SELECT A.value, B.name_quantity, C.name_ingredient
+				FROM quantity_ingredient A, lebel_quantity B, ingredient C
+				WHERE A.id_recipe = ".$indice." AND A.id_quantity=B.id_quantity
+					AND A.id_ingredient=C.id_ingredient";
+		$tmp = ($this->_bdd)->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+		return $tmp;
+
+	}
+
+	public function show_avg($indice)
+	{
+		if ($this->_bdd == FALSE)
+			return FALSE;
+		else
+		{
+			$this->_avg_notes = $this->search_notes_id_recipe($indice);
+			return $this->_avg_notes;
+		}
+	}
+
+	public function show_table($indice)
+    {
+		if ($this->_bdd == FALSE)
+			return FALSE;
+        else
+		{
+			$this->_table = $this->search_recipe_id($indice);
+			return $this->_table;
+		}
+	}
+
+	public function show_ingredient($indice)
+	{
+		if ($this->_bdd == FALSE)
+			return FALSE;
+		else
+		{
+			$this->_ingredients = $this->search_ingredient_id($indice);
+			return $this->_ingredients;
+		}
+	}
+
+}
+
+class add_database extends Database
+{
+	private $_bdd;
+
+	public function __construct()
+	{
+		$toto = new Database();
+		if (($toto->try_connection()) != FALSE)
+		{
+			$this->_bdd =  $toto->try_connection();
+		}
+		else
+		{
+			$this->_bdd=FALSE;
+		}
+	}
+
+	public function add_recipe($recipe)
+	{
+		$requete = "USE marmiton";
+		$toto = ($this->_bdd)->query($requete);
+		$sql = "SELECT COUNT(`id_recette`) FROM recipe";
+		$id_recipe = ($this->_bdd)->query($sql)->fetch(PDO::FETCH_ASSOC);
+		$id_recipe = (($id_recipe['COUNT(`id_recette`)']) + 1);
+		$date = date_create()->format('Y-m-d');
+		$sql = "SELECT COUNT(`id_creator`) FROM creator";
+		$nbr_creator = ($this->_bdd)->query($sql)->fetch(PDO::FETCH_ASSOC);
+		$id_creator = (($nbr_creator['COUNT(`id_creator`)']) + 1);
+		$sql = ($this->_bdd)->query("SELECT id_creator FROM creator WHERE pseudo='".$recipe['creator']."' AND mail='".$recipe['creator_email']."'")->fetch(PDO::FETCH_ASSOC);
+		if (!is_bool($sql['id_creator']))
+			$id_creator = $sql['id_creator'];
+		else
+			($this->_bdd)->query("INSERT INTO creator (pseudo, mail, id_creator) VALUES ('" . $recipe['creator'] . "' , '" . $recipe['creator_email'] . "' , '" . $id_creator."')");
+		$sql = "INSERT INTO recipe (id_recette, name_recette, date_create, picture, id_creator) VALUES ('".$id_recipe."' , '".$recipe['name_recipe']."' , '".$date."' , '".$recipe['picture']."' , '".$id_creator."')";
+		$request = ($this->_bdd)->query($sql);
+		$sql = "SELECT * FROM recipe";
+		$recette = ($this->_bdd)->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+		$ingredient = $recipe['ingredients'];
+		for ($i=0; $i<sizeof($ingredient); $i++)
+		{
+			$sql = ($this->_bdd)->query("SELECT id_ingredient FROM ingredient WHERE name_ingredient='".$ingredient[$i]['ingredient']."'")->fetch(PDO::FETCH_ASSOC);
+			if (!is_null($sql['id_ingredient']))
+				$id_ingredient = $sql['id_ingredient'];
+			else
+			{
+				$sql = "SELECT COUNT(`id_ingredient`) FROM ingredient";
+				$id_ingredient = ($this->_bdd)->query($sql)->fetch(PDO::FETCH_ASSOC);
+				$id_ingredient = (($id_ingredient['COUNT(`id_ingredient`)']) + 1);
+				($this->_bdd)->query("INSERT INTO ingredient (id_ingredient, name_ingredient) VALUES ('" . $id_ingredient . "' , '" . $ingredient[$i]['ingredient'] . "')");
+			}
+
+			$sql = ($this->_bdd)->query("SELECT id_quantity FROM lebel_quantity WHERE name_quantity='".$ingredient[$i]['quantity']."'")->fetch(PDO::FETCH_ASSOC);
+			if (!is_null($sql['id_quantity']))
+				$id_quantity = $sql['id_quantity'];
+			else
+			{
+				$sql = "SELECT COUNT(`id_quantity`) FROM lebel_quantity";
+				$id_quantity = ($this->_bdd)->query($sql)->fetch(PDO::FETCH_ASSOC);
+				$id_quantity = (($id_quantity['COUNT(`id_quantity`)']) + 1);
+				($this->_bdd)->query("INSERT INTO lebel_quantity (id_quantity, name_quantity) VALUES ('" . $id_quantity . "' , '" . $ingredient[$i]['quantity'] . "')");
+			}
+
+			$sql = "SELECT COUNT(`id`) FROM quantity_ingredient";
+			$id_quantity_ingredient = ($this->_bdd)->query($sql)->fetch(PDO::FETCH_ASSOC);
+			$id_quantity_ingredient = (($id_quantity_ingredient['COUNT(`id`)']));
+			($this->_bdd)->query("INSERT INTO quantity_ingredient (id, id_ingredient, id_quantity, id_recipe, value) VALUES ('" . $id_quantity_ingredient . "' , '" . $id_ingredient . "' , '" . $id_quantity . "' , '" . $id_recipe . "' , '" . $ingredient[$i]['value'] ."')");
+		}
+		$step = $recipe['step'];
+		$sql = "SELECT COUNT(`id`) FROM step";
+		$id_step = ($this->_bdd)->query($sql)->fetch(PDO::FETCH_ASSOC);
+		$id_step = (($id_step['COUNT(`id`)']));
+		for ($i=0; $i < sizeof($step); $i++)
+		{
+			$sql=$this->_bdd->prepare("INSERT INTO step (id, id_recipe, number_step, step) VALUES (:id, :id_recipe, :number_step, :step)");
+			$sql = $sql->execute(array(
+				':id' => $id_step,
+				':id_recipe' => $id_recipe,
+				':number_step' => $i,
+				':step' => $step[$i]
+			));
+			$id_step++;
+		}
+		return TRUE;
+	}
+}
+
+class find_most extends Database
+{
+	private $_bdd;
+	private $_most_notes;
+	private $_most_recent;
+
+	public function __construct()
+	{
+		$toto = new Database();
+		if (($toto->try_connection()) != FALSE)
+		{
+			$this->_bdd =  $toto->try_connection();
+		}
+		else
+		{
+			$this->_bdd=FALSE;
+		}
+		$this->_most_notes = $this->search_notes();
+		$this->_most_recent = $this->search_recent();
+	}
+
+	public function search_notes()
+	{
+		$requete = "USE marmiton";
+		$toto = ($this->_bdd)->query($requete);
+		$sql = "SELECT A.moyenne, A.id_recipe FROM (SELECT AVG(B.note) AS moyenne, B.id_recipe FROM notes B GROUP BY B.id_recipe) A ORDER BY A.moyenne LIMIT 8";
+		$id_recipe = ($this->_bdd)->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+		return $this->organize_recipe($id_recipe);
+	}
+
+	public function search_recent()
+	{
+		$requete = "USE marmiton";
+		$toto = ($this->_bdd)->query($requete);
+		$sql = "SELECT id_recette as id_recipe FROM recipe ORDER BY date_create DESC LIMIT 8";
+		$id_recipe = ($this->_bdd)->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+		return $this->organize_recipe($id_recipe);
+	}
+
+	public function organize_recipe($tab)
+	{
+		for ($i=0; $i<sizeof($tab); $i++)
+		{
+			$tmp = $tab[$i];
+			$sql = "SELECT A.name_recette, A.picture, A.id_recette, B.pseudo FROM recipe A, creator B WHERE A.id_recette='".$tmp['id_recipe']."' AND A.id_creator=B.id_creator";
+			$tmp2 = ($this->_bdd)->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+			$result[$i] = $tmp2[0];
+			if (isset($tmp['moyenne']))
+				$result[$i]['moyenne'] = $tmp['moyenne'];
+		}
+		return $result;
+	}
+
+	public function show_notes()
+	{
+		if ($this->_bdd == FALSE)
+			return FALSE;
+		else
+		{
+			return $this->_most_notes;
+		}
+	}
+
+	public function show_recent()
+	{
+		if ($this->_bdd == FALSE)
+			return FALSE;
+		else
+		{
+			return $this->_most_recent;
+		}
+	}
+}
+/*
+echo '<pre>';
+$recette['name_recipe'] = "Tartiflette";
+$recette['picture'] = "http://icu.linter.fr/750/10002060/1496690307/tartiflette.jpg";
+$recette['creator'] = "B.X.";
+$recette['creator_email'] = "benoitxavierhouvet@gmail.com";
+
+$titi[0] = "Préparer tous les ingrédients.";
+$titi[1] = "Éplucher les pommes de terre à l'aide d'un éplucheur à légumes. Dans une casserole, cuire les pommes de terre à l'anglaise";
+$titi[2] = "À ébullition, surveiller la cuisson en piquant la pointe d'un couteau dans une pomme de terre. Lorsqu'elles seront cuites, la lame du couteau devra se planter sans résistance.";
+
+$recette['step'] = $titi;
+
+$toto[0]['value'] = "1";
+$toto[0]['quantity'] = "Pincée";
+$toto[0]['ingredient'] = "sel";
+
+$toto[1]['value'] = "1";
+$toto[1]['quantity'] = "kilo";
+$toto[1]['ingredient'] = "pommes de terre";
+
+$toto[2]['value'] = "250";
+$toto[2]['quantity'] = "gramme";
+$toto[2]['ingredient'] = "lardons";
+
+$recette['ingredients'] = $toto;
+
+$toto = new add_database();
+$toto->add_recipe($recette);
+$toto = new find_recipe();
+print_r($toto->show_table("7"));
+$toto = new find_most();
+print_r($toto->show_notes());
+print_r($toto->show_recent());
+*/
+?>

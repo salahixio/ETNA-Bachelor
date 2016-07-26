@@ -1,0 +1,67 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: antoine
+ * Date: 10/02/2016
+ * Time: 14:09
+ */
+require_once "Model/Database.php";
+class CreateRecipeController
+{
+
+    public function getView()
+    {
+        //Création de la vue
+        require "View/add_recipe.php";
+    }
+
+    public function addRecipe($infos_recipe)
+    {
+        print_r($infos_recipe);
+        require_once "Model/Database.php";
+        $add_database = new add_database();
+
+        $data['creator']=$infos_recipe['pseudo'];
+        $data['creator_email'] = $infos_recipe['email'];
+        $data['name_recipe'] = $infos_recipe['title'];
+        //$data['picture'] = $infos_recipe['picture'];
+        // --------------TEST BX-------------
+        $data['picture'] = "http://icu.linter.fr/750/10002060/1496690307/tartiflette.jpg";
+        $i=1;
+        $j=0;
+        while (isset($infos_recipe['step_'.$i]))
+        {
+            if (!is_null($infos_recipe['step_'.$i]))
+            {
+                $tmp[$j] = $infos_recipe['step_' . $i];
+                $j++;
+            }
+            $i++;
+        }
+        $data['step'] = $tmp;
+        $i=1;
+        while (isset ($infos_recipe['name_ingredient_'.$i]))
+        {
+            $tmp2['ingredient'] = $infos_recipe['name_ingredient_'.$i];
+            $tmp2['value'] = $infos_recipe['unite_'.$i];
+            $tmp2['quantity'] = $infos_recipe['quantite_'.$i];
+
+            $tmp3[$i-1] = $tmp2;
+            $i++;
+        }
+        $data['ingredients'] = $tmp3;
+        $i=0;
+        while (isset ($infos_recipe['categorie'][$i]))
+        {
+            $data['category'][$i] = $infos_recipe['categorie'][$i];
+            $i++;
+        }
+
+        print_r($data);
+
+        //add_database
+        $add_database->add_recipe($data);
+    }
+}
+?>

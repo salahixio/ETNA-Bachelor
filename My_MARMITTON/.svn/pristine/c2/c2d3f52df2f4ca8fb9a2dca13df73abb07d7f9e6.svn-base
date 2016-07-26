@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: antoine
+ * Date: 16/02/2016
+ * Time: 22:52
+ */
+class GlobalController
+{
+    public function __construct()
+    {
+        //Récupérer les recettes populaires et les nouvelles recettes
+
+        //Créer la vue avec ces paramétres
+        require "View/index.php";
+    }
+}

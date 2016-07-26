@@ -1,0 +1,78 @@
+<?php
+error_reporting(-1);
+ini_set('display_errors', 'On');
+date_default_timezone_set('UTC');
+class Database 
+{
+	public function try_connection()
+	{
+		try
+		{
+			$bdd =  (new PDO('mysql:host=localhost;port=9998;', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)));
+		}
+		catch(PDOException $e)
+		{
+			return FALSE;
+		}
+		return $bdd;
+	}
+}
+
+class find_recipe extends Database
+{
+    private $_table;
+	private $_bdd;
+
+	public function __construct()
+	{
+		$toto = new Database();
+		if (($toto->try_connection()) != FALSE)
+		{
+			$this->_bdd =  $toto->try_connection();
+		}
+		else
+		{
+			$this->_bdd=FALSE;
+		}
+	}
+
+	/*
+		Renvoyer tableau (plus pratique dans le controlleur pour encoder en Json).
+	*/
+
+	public function search_recipe_id($indice)
+	{
+        $requete = "USE marmiton";
+        $toto = ($this->_bdd)->query($requete);
+		$sql = "SELECT * FROM recipe WHERE id_recette=".$indice;
+		$recipe = ($this->_bdd)->query($sql)->fetch(PDO::FETCH_ASSOC);
+		$id_creator = $recipe['id_creator'];
+		$sql4 = "SELECT pseudo, mail FROM creator WHERE id_creator=".$id_creator;
+		$creator = ($this->_bdd)->query($sql4)->fetch(PDO::FETCH_ASSOC);
+		$recipe['creator_pseudo']=$creator['pseudo'];
+		$recipe['creator_mail']=$creator['mail'];
+        $sql2 = "SELECT id_category FROM quantity_category WHERE id_recipe=".$recipe['id_recette'];
+        $tmp = ($this->_bdd)->query($sql2)->fetchAll(PDO::FETCH_ASSOC);
+		$i=0;
+		while (isset($tmp[$i]['id_category']))
+		{
+			$sql3 = "SELECT name_category FROM category WHERE id_category=".$tmp[$i]['id_category'];
+			$tmp2 = ($this->_bdd)->query($sql3)->fetch();
+			$tmp3[$i] = $tmp2['name_category'];
+			$i++;
+		}
+
+		$recipe['category'] = $tmp3;
+        return $recipe;
+	}
+
+	public function show_table($indice)
+    {
+        $this->_table = $this->search_recipe_id($indice);
+		return $this->_table;
+	}
+
+}
+$toto = new find_recipe();
+print_r($toto->show_table("1"));
+?>

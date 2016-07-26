@@ -1,0 +1,7 @@
+<!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="View/js/materialize.js"></script>
+    <script src="View/js/recipe_actions.js"></script>
+    <script src="View/js/init.js"></script>
+  </body>
+</html>

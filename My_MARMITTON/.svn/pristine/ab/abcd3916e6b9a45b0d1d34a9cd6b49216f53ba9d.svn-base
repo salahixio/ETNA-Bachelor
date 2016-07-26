@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: antoine
+ * Date: 10/02/2016
+ * Time: 14:09
+ */
+class CreateRecipeController
+{
+
+    public function getView()
+    {
+        //Création de la vue
+        require "View/add_recipe.php";
+    }
+
+    public function addRecipe($infos_recipe)
+    {
+        require_once "Model/Database.php";
+        $add_database = new add_database();
+        $add_database->addRecipe($infos_recipe);
+    }
+}
+?>

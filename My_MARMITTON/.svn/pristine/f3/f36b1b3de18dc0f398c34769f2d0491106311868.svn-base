@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: antoine
+ * Date: 17/02/2016
+ * Time: 00:22
+ */
+class StepController
+{
+
+    public function __construct($id_recipe)
+    {
+        //Récupére les étapes de la recette
+
+        //Création de la vue en fonction des étapes
+        require "View/full_screen_slider.php";
+    }
+}

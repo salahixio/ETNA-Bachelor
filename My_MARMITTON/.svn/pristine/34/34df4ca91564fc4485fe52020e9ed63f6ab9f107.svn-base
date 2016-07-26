@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: antoine
+ * Date: 17/02/2016
+ * Time: 00:08
+ */
+//include 'Model/Database.php';
+
+class IndexController
+{
+    private $_last_recette;
+    private $_popular_recette;
+
+    public function __construct()
+    {
+        //Récupérer les recettes populaires et les nouvelles recettes
+        $class = new find_most();
+
+        $last_recipe = $class->show_recent();
+        var_dump($last_recipe);
+        if ($last_recipe == FALSE)
+            $this->_last_recette = json_encode(FALSE);
+        else
+            $this->_last_recette = json_encode($last_recipe);
+        $popular_recipe = $class->show_notes();
+        if ($popular_recipe == FALSE)
+            $this->_popular_recette = json_encode(FALSE);
+        else
+            $this->_popular_recette = json_encode($popular_recipe);
+
+        //Créer la vue avec ces paramétres
+        //require "View/index.php?last=".$this->_last_recette."?popular=".$this->_popular_recette;
+        require "View/index.php";
+    }
+}

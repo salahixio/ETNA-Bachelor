@@ -1,0 +1,148 @@
+<?php
+include "Include/header.php";
+include "Include/nav.php";
+include "Include/modal.html";
+?>
+
+    <div class="container" id="page">
+        <div class="section">
+            <div class="slider">
+                <ul class="slides">
+                    <li>
+                        <img src="http://lorempixel.com/580/250/food/8">
+                        <div class="caption center-align">
+                            <h4 class="black-text">Découvrez notre nouvelle catégorie!</h4>
+                            <h5 class="black-text">Les plats asiatiques!</h5>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="http://lorempixel.com/580/250/food/5">
+                        <div class="caption left-align">
+                            <h3 class="black-text">Régime légumes !</h3>
+                            <h5 class="black-text">Nous vous proposons des recettes équilibrées</h5>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="http://lorempixel.com/580/250/food/9">
+                        <div class="caption right-align">
+                            <h3 class="black-text">Nos sandwichs bien garnis</h3>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="section">
+            <div class="icon-block">
+                <h5 class="brown-text"><i class="material-icons">announcement</i>Dernières Recettes</h5>
+            </div>
+            <div class="row">
+                <div class="col s12 m3">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <img src="View/img/gateau_choco.jpg">
+                        </div>
+                        <div class="card-action">
+                            <div class="chip">Antoine</div>
+                            </p>
+                            <p>Gateau au chocolat</p>
+                            <a href="resume_recipe.php?img=View/img/gateau_choco.jpg">Afficher la recette</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m3">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <img src="View/img/pancakes.jpg">
+                        </div>
+                        <div class="card-action">
+                            <div class="chip">B.X</div>
+                            <p>Pancakes</p>
+                            <a href="resume_recipe.php?img=View/img/pancakes.jpg">Afficher la recette</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m3">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <img src="View/img/pates_carbo.jpg">
+                        </div>
+                        <div class="card-action">
+                            <div class="chip">B.X</div>
+                            <p>Pates Carbonara</p>
+                            <a href="resume_recipe.php?img=View/img/pates_carbo.jpg">Afficher la recette</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m3">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <img src="View/img/profiteroles.jpg">
+                        </div>
+                        <div class="card-action">
+                            <div class="chip">B.X</div>
+                            <p>Profiteroles</p>
+                            <a href="resume_recipe.php?img=View/img/profiteroles.jpg">Afficher la recette</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="icon-block">
+                <h5 class="brown-text"><i class="material-icons">grade</i>Recettes populaires</h5>
+            </div>
+            <div class="row">
+                <div class="col s12 m3">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <img src="View/img/macaron.jpg">
+                        </div>
+                        <div class="card-action">
+                            <div class="chip">Antoine</div>
+                            <p>Macaron Caramel</p>
+                            <a href="resume_recipe.php?img=View/img/macaron.jpg">Afficher la recette</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m3">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <img src="View/img/smoothies.jpg">
+                        </div>
+                        <div class="card-action">
+                            <div class="chip">B.X.</div>
+                            <p>Smoothies</p>
+                            <a href="resume_recipe.php?img=View/img/smoothies.jpg">Afficher la recette</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m3">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <img src="View/img/sables.jpg">
+                        </div>
+                        <div class="card-action">
+                            <div class="chip">Antoine</div>
+                            <p>Sablés à la pistache</p>
+                            <a href="resume_recipe.php?img=View/img/sables.jpg">Afficher la recette</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m3">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <img src="View/img/cookie.jpg">
+                        </div>
+                        <div class="card-action">
+                            <div class="chip">B.X.</div>
+                            <p>Cookies Maison</p>
+                            <a href="resume_recipe.php?img=View/img/cookie.jpg">Afficher la recette</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<?php
+include("Include/footer.php");
+
+?>

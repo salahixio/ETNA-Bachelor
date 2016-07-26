@@ -1,0 +1,297 @@
+-- phpMyAdmin SQL Dump
+-- version 4.4.10
+-- http://www.phpmyadmin.net
+--
+-- Client :  localhost:1025
+-- Généré le :  Mer 17 Février 2016 à 11:22
+-- Version du serveur :  5.5.42
+-- Version de PHP :  7.0.0
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Base de données :  `marmiton`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `category`
+--
+
+CREATE TABLE `category` (
+  `id_category` int(11) NOT NULL,
+  `name_category` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `category`
+--
+
+INSERT INTO `category` (`id_category`, `name_category`) VALUES
+(1, 'plat'),
+(2, 'italien');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `creator`
+--
+
+CREATE TABLE `creator` (
+  `id_creator` int(11) NOT NULL,
+  `pseudo` text NOT NULL,
+  `mail` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `creator`
+--
+
+INSERT INTO `creator` (`id_creator`, `pseudo`, `mail`) VALUES
+(1, 'B.X.', 'benoitxavierhouvet@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `ingredient`
+--
+
+CREATE TABLE `ingredient` (
+  `id_ingredient` int(11) NOT NULL,
+  `name_ingredient` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `ingredient`
+--
+
+INSERT INTO `ingredient` (`id_ingredient`, `name_ingredient`) VALUES
+(0, 'pâte à lasagnes'),
+(1, 'viande hachée de boeuf'),
+(2, 'chair a saucisse'),
+(3, 'tomates en dés'),
+(4, 'purée de tomate'),
+(5, 'oignon'),
+(6, 'carotte'),
+(7, 'branche de celeri'),
+(8, 'huile d''olive'),
+(9, 'sel'),
+(10, 'poivre'),
+(11, 'basilic'),
+(12, 'mozzarella'),
+(14, 'pommes de terre'),
+(15, 'lardons');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `lebel_quantity`
+--
+
+CREATE TABLE `lebel_quantity` (
+  `id_quantity` int(11) NOT NULL,
+  `name_quantity` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `lebel_quantity`
+--
+
+INSERT INTO `lebel_quantity` (`id_quantity`, `name_quantity`) VALUES
+(0, 'paquet'),
+(1, 'gramme'),
+(2, 'boîte'),
+(3, 'bouteille'),
+(4, ''),
+(6, 'Pincée'),
+(7, 'kilo');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `notes`
+--
+
+CREATE TABLE `notes` (
+  `id` int(11) NOT NULL,
+  `id_recipe` int(11) NOT NULL,
+  `note` int(11) NOT NULL,
+  `commentaire` text NOT NULL,
+  `pseudo` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `notes`
+--
+
+INSERT INTO `notes` (`id`, `id_recipe`, `note`, `commentaire`, `pseudo`) VALUES
+(1, 1, 5, 'coucou', 'bxh'),
+(2, 1, 1, 'kiki', 'HOUVET Benoît - Xavier '),
+(3, 1, 5, 'coucouds', 'bxh');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `quantity_category`
+--
+
+CREATE TABLE `quantity_category` (
+  `id_recipe` int(11) NOT NULL,
+  `id_category` int(11) NOT NULL,
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `quantity_category`
+--
+
+INSERT INTO `quantity_category` (`id_recipe`, `id_category`, `id`) VALUES
+(1, 1, 1),
+(1, 2, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `quantity_ingredient`
+--
+
+CREATE TABLE `quantity_ingredient` (
+  `id` int(11) NOT NULL,
+  `id_ingredient` int(11) NOT NULL,
+  `id_quantity` int(11) NOT NULL,
+  `id_recipe` int(11) NOT NULL,
+  `value` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `quantity_ingredient`
+--
+
+INSERT INTO `quantity_ingredient` (`id`, `id_ingredient`, `id_quantity`, `id_recipe`, `value`) VALUES
+(0, 0, 0, 1, '1/2'),
+(1, 1, 1, 1, '250'),
+(2, 2, 1, 1, '150'),
+(3, 3, 2, 1, '1'),
+(4, 4, 3, 1, '1'),
+(5, 5, 4, 1, '1'),
+(6, 6, 4, 1, '1'),
+(7, 7, 4, 1, '1'),
+(8, 8, 4, 1, ''),
+(9, 9, 4, 1, ''),
+(10, 10, 4, 1, ''),
+(11, 11, 4, 1, ''),
+(12, 12, 4, 1, ''),
+(13, 9, 6, 2, '1'),
+(14, 14, 7, 2, '1'),
+(15, 15, 1, 2, '250');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `recipe`
+--
+
+CREATE TABLE `recipe` (
+  `id_recette` int(11) NOT NULL,
+  `name_recette` text NOT NULL,
+  `date_create` date NOT NULL,
+  `picture` text NOT NULL,
+  `id_creator` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `recipe`
+--
+
+INSERT INTO `recipe` (`id_recette`, `name_recette`, `date_create`, `picture`, `id_creator`) VALUES
+(1, 'lasagnes', '2016-01-27', 'http://www.weightwatchers-au-supermarche.fr/images/plat-lasagne1.png', 1),
+(2, 'Tartiflette', '2016-02-15', 'http://icu.linter.fr/750/10002060/1496690307/tartiflette.jpg', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `step`
+--
+
+CREATE TABLE `step` (
+  `id` int(11) NOT NULL,
+  `id_recipe` int(11) NOT NULL,
+  `number_step` int(11) NOT NULL,
+  `step` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `step`
+--
+
+INSERT INTO `step` (`id`, `id_recipe`, `number_step`, `step`) VALUES
+(0, 1, 0, 'Laver et hacher finement l''oignon, la carotte et la branche de céleri (en ayant pris soin d''en retirer les feuilles que l''on réserve pour plus tard).'),
+(1, 1, 1, 'Dans une marmite ou une cocotte, verser un fond d''huile d''olive et y ajouter la moitié du mélange préalablement préparé, puis y ajouter toute la tomate.'),
+(2, 1, 2, 'Ajouter ensuite un bouquet constitué des feuilles de céleri et de deux branches de basilic entières, bouquet que l''on retirera en fin de cuisson de la sauce'),
+(3, 1, 3, 'Préparer une béchamel classique et la réserver.'),
+(4, 1, 4, 'Prendre ensuite un autre récipient et y ajouter un fond d''huile d''olive, le reste de hachis (oignon + carotte + céleri), puis ajouter la chair à saucisse, laisser cuire environ 5 minutes et ajouter le boeuf.'),
+(5, 1, 5, 'Lorsque le mélange a pris sa couleur, le retirer du feu et le mélanger avec la béchamel.'),
+(6, 1, 6, 'Si vous avez le temps, laissez cuire la sauce tomate environ 1 heure à feux doux en rajoutant un peu d''eau si nécessaire.'),
+(7, 1, 7, 'Procéder ensuite de la manière habituelle en faisant une couche de pâtes, une couche de tomate, une couche de béchamel + viande, en rajoutant quelques feuilles de basilic entre chaque couche.'),
+(8, 1, 8, 'Laisser cuire environ 35 min à four moyen et recouvrir de mozzarella coupée en petits morceaux quelques minutes avant de servir.');
+
+--
+-- Index pour les tables exportées
+--
+
+--
+-- Index pour la table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id_category`);
+
+--
+-- Index pour la table `creator`
+--
+ALTER TABLE `creator`
+  ADD PRIMARY KEY (`id_creator`);
+
+--
+-- Index pour la table `ingredient`
+--
+ALTER TABLE `ingredient`
+  ADD PRIMARY KEY (`id_ingredient`);
+
+--
+-- Index pour la table `lebel_quantity`
+--
+ALTER TABLE `lebel_quantity`
+  ADD PRIMARY KEY (`id_quantity`);
+
+--
+-- Index pour la table `notes`
+--
+ALTER TABLE `notes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `quantity_category`
+--
+ALTER TABLE `quantity_category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `quantity_ingredient`
+--
+ALTER TABLE `quantity_ingredient`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `recipe`
+--
+ALTER TABLE `recipe`
+  ADD PRIMARY KEY (`id_recette`);
+
+--
+-- Index pour la table `step`
+--
+ALTER TABLE `step`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`);

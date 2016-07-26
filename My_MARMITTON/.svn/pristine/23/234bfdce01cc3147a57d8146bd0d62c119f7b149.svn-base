@@ -1,0 +1,9 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: antoine
+ * Date: 10/02/2016
+ * Time: 14:09
+ */
+print_r($_POST);

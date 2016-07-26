@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: antoine
+ * Date: 16/02/2016
+ * Time: 23:27
+ */
+class ResumeRecipeController
+{
+    private $_infos;
+
+    public function __construct($id_recipe)
+    {
+        //Récupére les infos de la recette à partir de son id
+        $find_recipe = new find_recipe();
+        $this->_infos = $find_recipe->search_recipe_id($id_recipe);
+        //print_r($this->_infos);
+        //Créer la vue
+        require "View/resume_recipe.php";
+
+    }
+}

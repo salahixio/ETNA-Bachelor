@@ -1,0 +1,31 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: antoine
+ * Date: 10/02/2016
+ * Time: 14:27
+ */
+require_once "Model/Database.php";
+
+class SearchRecipeController
+{
+    public function search($infos_recipe)
+    {
+        $i=1;
+        while (isset ($search['name_ingredient_'.$i]))
+        {
+            $data['ingredient'][$i-1] = $infos_recipe['name_ingredient_'.$i];
+            $tmp3[$i-1] = $tmp2;
+            $i++;
+        }
+        $data['ingredients'] = $tmp3;
+        $i=0;
+        while (isset ($infos_recipe['categorie'][$i]))
+        {
+            $data['category'][$i] = $infos_recipe['categorie'][$i];
+            $i++;
+        }
+        $data['name_recipe'] = $infos_recipe['title'];
+
+    }
+}

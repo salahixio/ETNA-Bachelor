@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: antoine
+ * Date: 16/02/2016
+ * Time: 23:27
+ */
+class ResumeRecipeController
+{
+    private $_infos;
+    private $_linkImg;
+
+    public function __construct($id_recipe, $img)
+    {
+        require "View/resume_recipe.php";
+        //Récupére les infos de la recette à partir de son id
+
+        //Créer la vue
+        require "View/resume_recipe.php?img=$this->img";
+
+    }
+
+    public function getLink()
+    {
+        return $this->_linkImg;
+    }
+}

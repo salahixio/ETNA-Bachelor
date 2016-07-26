@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: benoit-xavierhouvet
+ * Date: 19/02/2016
+ * Time: 23:47
+ */
+class Search extends Database
+{
+    private $_bdd;
+
+    public function __construct()
+    {
+        $toto = new Database();
+        if (($toto->try_connection()) != FALSE) {
+            $this->_bdd = $toto->try_connection();
+        } else {
+            $this->_bdd = FALSE;
+        }
+    }
+
+    public function search($request)
+    {
+        $ingredient=$request['ingredients'];
+        $category=$request['category'];
+        $titre=$request['name_recipe'];
+        $sql = "SELECT (";
+        if (empty($ingredient))
+            $tmp_table="";
+        else
+            $tmp_table="";
+        if (empty($category))
+            $tmp_category="";
+        else
+            $tmp_category="category";
+    }
+
+}

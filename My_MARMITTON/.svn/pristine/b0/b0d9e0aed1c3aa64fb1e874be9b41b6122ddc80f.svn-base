@@ -1,0 +1,15 @@
+<nav role="navigation">
+    <div class="nav-wrapper">
+        <a id="logo-container" href="#" class="brand-logo">My Marmiton</a>
+        <ul class="inline-block right hide-on-med-and-down">
+            <li>
+                <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+            </li>
+        </ul>
+
+        <ul id="nav-mobile" class="side-nav">
+          <li><a href="#">Ajouter</a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">add</i></a>
+      </div>
+    </nav>

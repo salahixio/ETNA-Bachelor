@@ -1,0 +1,75 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+</html>
+<?php
+
+include 'add_database.class.php';
+include 'find_most.class.php';
+include 'find_recipe.class.php';
+include 'find_comment.class.php';
+
+class Database 
+{
+	public function try_connection()
+	{
+		try
+		{
+			$bdd =  (new PDO('mysql:host=localhost;port=9998;', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)));
+			$bdd->query("SET NAMES utf8");
+			$bdd->query("USE marmiton");
+		}
+		catch(PDOException $e)
+		{
+			return FALSE;
+		}
+		return $bdd;
+	}
+}
+
+
+
+
+
+/*
+echo '<pre>';
+$recette['name_recipe'] = "Tartiflette";
+$recette['picture'] = "http://icu.linter.fr/750/10002060/1496690307/tartiflette.jpg";
+$recette['creator'] = "B.X.";
+$recette['creator_email'] = "benoitxavierhouvet@gmail.com";
+
+$tutu[0] = "savoyard";
+$tutu[1] = "plat";
+
+$recette['category'] = $tutu;
+
+$titi[0] = "Préparer tous les ingrédients.";
+$titi[1] = "Éplucher les pommes de terre à l'aide d'un éplucheur à légumes. Dans une casserole, cuire les pommes de terre à l'anglaise";
+$titi[2] = "À ébullition, surveiller la cuisson en piquant la pointe d'un couteau dans une pomme de terre. Lorsqu'elles seront cuites, la lame du couteau devra se planter sans résistance.";
+
+$recette['step'] = $titi;
+
+$toto[0]['value'] = "1";
+$toto[0]['quantity'] = "Pincée";
+$toto[0]['ingredient'] = "sel";
+
+$toto[1]['value'] = "1";
+$toto[1]['quantity'] = "kilo";
+$toto[1]['ingredient'] = "pommes de terre";
+
+$toto[2]['value'] = "250";
+$toto[2]['quantity'] = "gramme";
+$toto[2]['ingredient'] = "lardons";
+
+$recette['ingredients'] = $toto;
+
+$toto = new add_database();
+$toto->add_recipe($recette);
+$toto = new find_recipe();
+print_r($toto->show_table("15"));
+$toto = new find_most();
+print_r($toto->show_notes());
+print_r($toto->show_recent());
+*/
+?>

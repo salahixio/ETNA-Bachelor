@@ -1,0 +1,84 @@
+<?php
+include "../Include/header.php";
+include "../Include/nav.php";
+include "../Include/modal.html";
+?>
+
+    <div class="container" id="page">
+        <div class="section">
+            <div class="row">
+                <div class="col s4">
+                    <h5>Cherchez une recette</h5>
+                </div>
+                <div class="col s4">
+                    <a class="btn-floating btn-large waves-effect waves-light red modal-trigger" href="#search-modal"><i class="material-icons">search</i></a>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="icon-block">
+                <h5 class="brown-text"><i class="material-icons">announcement</i>Dernières Recettes</h5>
+            </div>
+            <div class="row">
+                <div class="col s12 m3">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <img src="img/gateau_choco.jpg">
+                        </div>
+                        <div class="card-action">
+                            <div class="chip">Antoine</div>
+                            </p>
+                            <p>Gateau au chocolat</p>
+                            <a href="resume_recipe.php?img=img/gateau_choco.jpg">Afficher la recette</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m3">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <img src="img/pancakes.jpg">
+                        </div>
+                        <div class="card-action">
+                            <div class="chip">B.X</div>
+                            <p>Pancakes</p>
+                            <a href="resume_recipe.php?img=img/pancakes.jpg">Afficher la recette</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="icon-block">
+                <h5 class="brown-text"><i class="material-icons">grade</i>Recettes populaire</h5>
+            </div>
+            <div class="row">
+                <div class="col s12 m3">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <img src="img/macaron.jpg">
+                        </div>
+                        <div class="card-action">
+                            <div class="chip">Antoine</div>
+                            <p>Macaron Caramel</p>
+                            <a href="resume_recipe.php?img=img/macaron.jpg">Afficher la recette</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m3">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <img src="img/smoothies.jpg">
+                        </div>
+                        <div class="card-action">
+                            <div class="chip">B.X.</div>
+                            <p>Smoothies</p>
+                            <a href="resume_recipe.php?img=img/smoothies.jpg">Afficher la recette</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<?php
+include("../Include/footer.php");
+
+?>

@@ -1,0 +1,32 @@
+/**
+ * Created by antoine on 12/02/2016.
+ */
+
+$(document).ready(function() {
+    $('select').material_select();
+});
+
+$(document).ready(function(){
+    $('.slider').slider({full_width: true});
+});
+
+function init_modal() {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+            if (xhr.responseText == "0")
+                alert("Faux");
+            else
+                alert("C'est bon");
+        }
+    };
+    xhr.open("GET", "get_ingredients.php", true);
+    xhr.send(null);
+    $('.modal-trigger').leanModal({
+        dismissible: true, // Modal can be dismissed by clicking outside of the modal
+        opacity: .5, // Opacity of modal background
+        in_duration: 300, // Transition in duration
+        out_duration: 200 });
+    $('#search-modal').openModal();
+
+}

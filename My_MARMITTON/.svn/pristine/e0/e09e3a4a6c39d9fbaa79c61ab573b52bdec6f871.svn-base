@@ -1,0 +1,182 @@
+bplist00�_WebMainResource�	
+_WebResourceFrameName^WebResourceURL_WebResourceData_WebResourceMIMEType_WebResourceTextEncodingNameP_file:///index.htmlO"%<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1404">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">-- phpMyAdmin SQL Dump</p>
+<p class="p1">-- version 4.4.10</p>
+<p class="p1">-- http://www.phpmyadmin.net</p>
+<p class="p1">--</p>
+<p class="p1">-- Client :<span class="Apple-converted-space">  </span>localhost:1025</p>
+<p class="p1">-- Généré le :<span class="Apple-converted-space">  </span>Mer 20 Janvier 2016 à 14:56</p>
+<p class="p1">-- Version du serveur :<span class="Apple-converted-space">  </span>5.5.42</p>
+<p class="p1">-- Version de PHP :<span class="Apple-converted-space">  </span>7.0.0</p>
+<p class="p2"><br></p>
+<p class="p1">SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";</p>
+<p class="p1">SET time_zone = "+00:00";</p>
+<p class="p2"><br></p>
+<p class="p1">--</p>
+<p class="p1">-- Base de données :<span class="Apple-converted-space">  </span>`marmiton`</p>
+<p class="p1">--</p>
+<p class="p1">CREATE DATABASE marmiton;</p>
+<p class="p1">USE marmiton;</p>
+<p class="p1">-- --------------------------------------------------------</p>
+<p class="p2"><br></p>
+<p class="p1">--</p>
+<p class="p1">-- Structure de la table `category`</p>
+<p class="p1">--</p>
+<p class="p2"><br></p>
+<p class="p1">CREATE TABLE `category` (</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`id_category` int(11) NOT NULL,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`name_category` text NOT NULL</p>
+<p class="p1">) ENGINE=InnoDB DEFAULT CHARSET=utf8;</p>
+<p class="p2"><br></p>
+<p class="p1">-- --------------------------------------------------------</p>
+<p class="p2"><br></p>
+<p class="p1">--</p>
+<p class="p1">-- Structure de la table `creator`</p>
+<p class="p1">--</p>
+<p class="p2"><br></p>
+<p class="p1">CREATE TABLE `creator` (</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`id_creator` int(11) NOT NULL,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`pseudo` text NOT NULL,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`mail` text NOT NULL</p>
+<p class="p1">) ENGINE=InnoDB DEFAULT CHARSET=utf8;</p>
+<p class="p2"><br></p>
+<p class="p1">-- --------------------------------------------------------</p>
+<p class="p2"><br></p>
+<p class="p1">--</p>
+<p class="p1">-- Structure de la table `ingredient`</p>
+<p class="p1">--</p>
+<p class="p2"><br></p>
+<p class="p1">CREATE TABLE `ingredient` (</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`id_ingredient` int(11) NOT NULL,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`name_ingredient` text NOT NULL</p>
+<p class="p1">) ENGINE=InnoDB DEFAULT CHARSET=utf8;</p>
+<p class="p2"><br></p>
+<p class="p1">-- --------------------------------------------------------</p>
+<p class="p2"><br></p>
+<p class="p1">--</p>
+<p class="p1">-- Structure de la table `lebel_quantity`</p>
+<p class="p1">--</p>
+<p class="p2"><br></p>
+<p class="p1">CREATE TABLE `lebel_quantity` (</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`id_quantity` int(11) NOT NULL,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`name_quantity` text NOT NULL</p>
+<p class="p1">) ENGINE=InnoDB DEFAULT CHARSET=utf8;</p>
+<p class="p2"><br></p>
+<p class="p1">-- --------------------------------------------------------</p>
+<p class="p2"><br></p>
+<p class="p1">--</p>
+<p class="p1">-- Structure de la table `notes`</p>
+<p class="p1">--</p>
+<p class="p2"><br></p>
+<p class="p1">CREATE TABLE `notes` (</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`id_recipe` int(11) NOT NULL,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`note` int(11) NOT NULL,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`commentaire` text NOT NULL</p>
+<p class="p1">) ENGINE=InnoDB DEFAULT CHARSET=utf8;</p>
+<p class="p2"><br></p>
+<p class="p1">-- --------------------------------------------------------</p>
+<p class="p2"><br></p>
+<p class="p1">--</p>
+<p class="p1">-- Structure de la table `quantity_category`</p>
+<p class="p1">--</p>
+<p class="p2"><br></p>
+<p class="p1">CREATE TABLE `quantity_category` (</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`id_recipe` int(11) NOT NULL,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`id_category` int(11) NOT NULL,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`id` int(11) NOT NULL</p>
+<p class="p1">) ENGINE=InnoDB DEFAULT CHARSET=utf8;</p>
+<p class="p2"><br></p>
+<p class="p1">-- --------------------------------------------------------</p>
+<p class="p2"><br></p>
+<p class="p1">--</p>
+<p class="p1">-- Structure de la table `quantity_ingredient`</p>
+<p class="p1">--</p>
+<p class="p2"><br></p>
+<p class="p1">CREATE TABLE `quantity_ingredient` (</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`id_ingredient` int(11) NOT NULL,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`id_quantity` int(11) NOT NULL,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`id_recipe` int(11) NOT NULL,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`value` int(11) NOT NULL</p>
+<p class="p1">) ENGINE=InnoDB DEFAULT CHARSET=utf8;</p>
+<p class="p2"><br></p>
+<p class="p1">-- --------------------------------------------------------</p>
+<p class="p2"><br></p>
+<p class="p1">--</p>
+<p class="p1">-- Structure de la table `recipe`</p>
+<p class="p1">--</p>
+<p class="p2"><br></p>
+<p class="p1">CREATE TABLE `recipe` (</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`id_recette` int(11) NOT NULL,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`name_recette` text NOT NULL,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`date_create` date NOT NULL,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`picture` text NOT NULL,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`id_creator` int(11) NOT NULL</p>
+<p class="p1">) ENGINE=InnoDB DEFAULT CHARSET=utf8;</p>
+<p class="p2"><br></p>
+<p class="p1">-- --------------------------------------------------------</p>
+<p class="p2"><br></p>
+<p class="p1">--</p>
+<p class="p1">-- Structure de la table `step`</p>
+<p class="p1">--</p>
+<p class="p2"><br></p>
+<p class="p1">CREATE TABLE `step` (</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`number_step` int(11) NOT NULL,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`id_recipe` int(11) NOT NULL,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`step` text NOT NULL</p>
+<p class="p1">) ENGINE=InnoDB DEFAULT CHARSET=utf8;</p>
+<p class="p2"><br></p>
+<p class="p1">--</p>
+<p class="p1">-- Index pour les tables exportées</p>
+<p class="p1">--</p>
+<p class="p2"><br></p>
+<p class="p1">--</p>
+<p class="p1">-- Index pour la table `category`</p>
+<p class="p1">--</p>
+<p class="p1">ALTER TABLE `category`</p>
+<p class="p1"><span class="Apple-converted-space">  </span>ADD PRIMARY KEY (`id_category`);</p>
+<p class="p2"><br></p>
+<p class="p1">--</p>
+<p class="p1">-- Index pour la table `creator`</p>
+<p class="p1">--</p>
+<p class="p1">ALTER TABLE `creator`</p>
+<p class="p1"><span class="Apple-converted-space">  </span>ADD PRIMARY KEY (`id_creator`);</p>
+<p class="p2"><br></p>
+<p class="p1">--</p>
+<p class="p1">-- Index pour la table `ingredient`</p>
+<p class="p1">--</p>
+<p class="p1">ALTER TABLE `ingredient`</p>
+<p class="p1"><span class="Apple-converted-space">  </span>ADD PRIMARY KEY (`id_ingredient`);</p>
+<p class="p2"><br></p>
+<p class="p1">--</p>
+<p class="p1">-- Index pour la table `lebel_quantity`</p>
+<p class="p1">--</p>
+<p class="p1">ALTER TABLE `lebel_quantity`</p>
+<p class="p1"><span class="Apple-converted-space">  </span>ADD PRIMARY KEY (`id_quantity`);</p>
+<p class="p2"><br></p>
+<p class="p1">--</p>
+<p class="p1">-- Index pour la table `quantity_category`</p>
+<p class="p1">--</p>
+<p class="p1">ALTER TABLE `quantity_category`</p>
+<p class="p1"><span class="Apple-converted-space">  </span>ADD PRIMARY KEY (`id`);</p>
+<p class="p2"><br></p>
+<p class="p1">--</p>
+<p class="p1">-- Index pour la table `recipe`</p>
+<p class="p1">--</p>
+<p class="p1">ALTER TABLE `recipe`</p>
+<p class="p1"><span class="Apple-converted-space">  </span>ADD PRIMARY KEY (`id_recette`);</p>
+</body>
+</html>
+Ytext/htmlUutf-8    ( ? N ` v � � �"�"�                           "�

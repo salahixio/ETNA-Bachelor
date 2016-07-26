@@ -1,0 +1,51 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: antoine
+ * Date: 10/02/2016
+ * Time: 14:09
+ */
+require_once "Model/Database.php";
+class CreateRecipeController
+{
+
+    public function getView()
+    {
+        //Création de la vue
+        require "View/add_recipe.php";
+    }
+
+    public function addRecipe($infos_recipe)
+    {
+        print_r($infos_recipe);
+        require_once "Model/Database.php";
+        $add_database = new add_database();
+
+        $data['creator']=$infos_recipe['pseudo'];
+        $data['creator_mail'] = $infos_recipe['email'];
+        $data['title'] = $infos_recipe['name_recipe'];
+        $data['picture'] = $infos_recipe['picture'];
+        $i=1;
+        $j=0;
+        while (isset($infos_recipe['step_'.$i]))
+        {
+            if (!is_null($infos_recipe['step_'.$i]))
+            {
+                $tmp[$j] = $infos_recipe['step_' . $i];
+                $j++;
+            }
+            $i++;
+        }
+        $data['step'] = $tmp;
+        $i=0;
+        while (isset ($infos_recipe['name_ingredient_'.$i]))
+        {
+
+        }
+        print_r($data);
+
+        //$add_database->add_recipe($infos_recipe);
+    }
+}
+?>

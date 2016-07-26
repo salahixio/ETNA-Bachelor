@@ -1,0 +1,47 @@
+/**
+ * Created by benoit-xavierhouvet on 23/02/2016.
+ */
+
+function verifForm(f)
+{
+    var pseudoOk = verifPseudo(f.pseudo);
+    var nameOk = verifEmail(f.email);
+    var titleOk = verifPseudo(f.title);
+    var pictureOk = verifPicture(f.picture);
+    var categorieOk = verifPicture(f.categorie);
+    var ingredientOk = verifPicture(f.name_ingredient_1);
+    var stepOk = verifPicture(f.step_1);
+
+    if (pseudoOk && nameOk && titleOk && pictureOk && categorieOk && ingredientOk && stepOk)
+        return true;
+    else {
+        alert("On a un probleme les gars !");
+        return false;
+    }
+}
+
+function verifPseudo(champ)
+{
+    if (champ.value.length > 3)
+        return true;
+    else
+        return false;
+}
+
+function verifEmail(champ)
+{
+    var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
+    if(!regex.test(champ.value))
+
+        return false;
+    else
+        return true;
+}
+
+function verifPicture(champ)
+{
+    if (champ.value.length == 0)
+        return false;
+    else
+        return true;
+}
