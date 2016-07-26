@@ -1,0 +1,33 @@
+<?php
+
+
+	require_once("Oauth2.class.php");
+	require_once("TweetResults.class.php");
+
+	$consumerKey = "9BzpcmkFx8qTMUk4sQIRgNrs2";
+	$consumerSecret = "hAcvuMr84j9e9DXNFfK2Fm2dIcwClFsLUzJGt0GiJk7kPYxKgc";
+
+	$Oauth2 = new Oauth2($consumerKey, $consumerSecret);
+	$TweetResults = new TweetResults("BXhouvet");
+	$results = $TweetResults->get_tweets_results($Oauth2->getBearerToken());
+	$con = new MongoClient();
+	$data = $con->selectDB('t_tweet');
+	$data->drop();
+	$collection = new MongoCollection($data, 't_tweet');
+
+	foreach($results->statuses as $result)
+	{
+		$a = array('picture' => $result->user->profile_image_url, '_id' => $result->id, 'screen_name' => $result->user->screen_name, 'name' => $result->user->name, 'tweet' => $result->text, 'date' => $result->created_at, 'langue' => $result->lang, 'GPS' => $result->coordinates, 'nbr_follower' => $result->user->followers_count, 'nbr_retweet' => $result->retweet_count);
+    		$collection->insert($a);
+		$text = str_replace(" ", "+", $result->text);
+		//echo $text;
+		$response = Unirest\Request::get("https://loudelement-free-natural-language-processing-service.p.mashape.com/nlp-text/?text=".$text,
+		  array(
+		      "X-Mashape-Key" => "<required>",
+		          "Accept" => "application/json"
+			    )
+			    );
+			    print_r($response);
+	}
+	
+?>

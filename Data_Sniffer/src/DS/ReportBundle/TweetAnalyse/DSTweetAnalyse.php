@@ -1,0 +1,58 @@
+<?php
+
+namespace DS\ReportBundle\TweetAnalyse;
+
+class DSTweetAnalyse
+{
+	private $consumerKey;
+	private $consumerKeySecret;
+	private $bearerToken;
+
+	public function __construct($consumerKey, $consumerKeySecret)
+	{
+		$this->consumerKey = $consumerKey;
+		$this->consumerKeySecret = $consumerKeySecret;
+		$this->bearerToken = $this->retrieve_bearerToken();
+	}
+
+	private function retrieve_bearerToken()
+	{
+		$authContext = stream_context_create(array(
+	    	       'http' => array(
+					'method'  => 'POST',
+					'header'  => "Authorization: Basic " . base64_encode(($this->consumerKey).':'.($this->consumerKeySecret)) . "\r\n" .
+					"Content-type: application/x-www-form-urlencoded;charset=UTF-8\r\n",
+					'content' => "grant_type=client_credentials"								
+				),										
+		));
+		$authResponse = file_get_contents("https://api.twitter.com/oauth2/token", false, $authContext);
+		$decodedAuth = json_decode($authResponse, true);
+		return ($decodedAuth["access_token"]);
+	}			
+
+	public function start_streaming_api()
+	{
+		shell_exec("/home/storm/storm/bin/storm jar /home/storm/storm_bis/storm/examples/storm-starter/target/storm-starter-0.9.5-jar-with-dependencies.jar storm.starter.InsertSampleStream stream");		
+	}
+
+  	public function get_tweets($search, $lang, $lat, $lng, $rad)
+  	{
+		$context = stream_context_create(array(
+				'http' => array(
+						'method'  => 'GET',
+			    	       		'header'  => "Authorization: Bearer " . $this->bearerToken . "\r\n",
+				       		),
+		));
+		$str = "https://api.twitter.com/1.1/search/tweets.json?q=".$search."&count=100&result_type=mixed";
+		if ( $lang != "")
+		{
+			$str = $str."&lang=".$lang;
+		}
+		if ($lat != "" && $lng != "" && $rad != "")
+		{
+		    $str = $str."&geocode=".$lat.",".$lng.",".$rad."km";
+		}
+		$encodedData = file_get_contents($str, false, $context);	
+		return ($encodedData); 
+  	}
+}

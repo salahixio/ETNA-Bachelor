@@ -1,0 +1,15 @@
+ds_report_form:
+    path:    /
+    defaults: { _controller: DSReportBundle:Report:Form }
+
+test_sentiments:
+    path:    /test
+    defaults: { _controller: DSReportBundle:Test:index }
+
+filtre:
+    path:    /filter
+    defaults: { _controller: DSReportBundle:Report:test }
+
+ds_tweet_add:
+    path:    /act
+    defaults: { _controller: DSReportBundle:Report:tweet_add }

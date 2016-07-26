@@ -1,0 +1,11 @@
+services:
+    ds_report.tweetanalyse:
+        class: DS\ReportBundle\TweetAnalyse\DSTweetAnalyse
+        arguments: ["9BzpcmkFx8qTMUk4sQIRgNrs2", "hAcvuMr84j9e9DXNFfK2Fm2dIcwClFsLUzJGt0GiJk7kPYxKgc"]
+
+    ds_report.databasehandler:
+        class: DS\ReportBundle\DatabaseHandler\DSDatabaseHandler
+
+    ds_report.analysis:
+        class: DS\ReportBundle\Analysis\DSAnalysis
+        arguments: ["9beb9c6a95ef4a3c61cfc891bd0a477a"]

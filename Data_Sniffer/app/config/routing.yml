@@ -1,0 +1,3 @@
+ds_report:
+    resource: "@DSReportBundle/Resources/config/routing.yml"
+    prefix:   /
