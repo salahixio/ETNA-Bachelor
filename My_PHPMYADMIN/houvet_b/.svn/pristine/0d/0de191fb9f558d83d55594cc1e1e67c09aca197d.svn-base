@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>My_PhpMyAdmin</title>
+        <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">	
+        <link href="css/index.css" rel="stylesheet">
+    </head>
+    <body>
+		<div id="nav">
+			<h5>Bases de données</h5>
+	    	<form id="form-search">
+	    		<input id="search" class="form-control" type="text">
+	    		<button id="icon-search" type="submit">
+	    			<span class="glyphicon glyphicon-search"></span>
+	    		</button>
+	    	</form>
+	    	<div class="scrollable">
+	    		<div id="ajout-bd">
+			       	<input type="text" class="form-control" id="new-bd" value="">
+			       	<button id="add-bd" class="btn btn-success btn-xs">Ajouter</button>
+			    </div>
+		      	<ul id="navbar">
+		       		<li id="" class="active"><a href="#">Première base</a></li>
+		       		<li id=""><a href="#">Deuxième base</a></li>
+		       		<li id=""><a href="#">Troisième base</a></li>
+		       		<li id=""><a href="#">Quatrième base</a></li>
+		       	</ul>
+			</div>
+		</div>
+    	<div id="tables">
+    		<div id ="base">
+    			<h2 id="name-bd">Première base</h2>
+    			<span id="infos-base">(crée le 23/12/15, 18 tables, 2.3Mo)</span>
+    		</div>
+    		<div id="modif-base">
+    			<button id="rename-base" class="btn btn-warning">Renommer</button>
+    			<button class="btn btn-danger">Supprimer</button>
+    		</div>
+			<hr>
+			<div id ="list-tables" class="scrollable">
+				<table class="table">
+					<thead class="text-center">
+						<tr>
+							<td>Nom de la table</td>
+							<td>Lignes</td>
+							<td></td>
+							<td></td>
+						</tr>
+					</thead>
+					<tbody id='item-tables' class="text-center">
+						<tr class="select-table">
+							<td class="elem">Première table test de plein de caractéres</td>
+							<td class="elem">299</td>
+							<td><button class="btn btn-warning btn-sm" onClick="">Renommer</button></td>
+							<td><button class="delete-table btn btn-danger btn-sm">Supprimer</button></td>
+						</tr>
+						<tr class="select-table">
+							<td class="elem">Deuxième table</td>
+							<td class="elem">1998</td>
+							<td><button class="btn btn-warning btn-sm" onClick="">Renommer</button></td>
+							<td><button class="delete-table btn btn-danger btn-sm">Supprimer</button></td>
+						</tr>
+						<tr class="select-table">
+							<td class="elem">Troisième table</td>
+							<td class="elem">12</td>
+							<td><button class="btn btn-warning btn-sm" onClick="">Renommer</button></td>
+							<td><button class="delete-table btn btn-danger btn-sm">Supprimer</button></td>
+						</tr>											
+					</tbody>
+					<tfoot class="text-center">
+						<td><input type="text" class="form-control" id="new-table" value=""></td>
+						<td>---</td>
+						<td><button id="add-table" class="btn btn-success btn-sm">Ajouter</button></td>
+						<td></td>
+					</tfoot>
+				</table>
+		   	</div>
+		</div>
+    	<footer>
+			<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    		<!-- Include all compiled plugins (below), or include individual files as needed -->
+    		<script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    		<script src="js/ajax.js"></script>
+		</footer>
+	</body>
+</html>

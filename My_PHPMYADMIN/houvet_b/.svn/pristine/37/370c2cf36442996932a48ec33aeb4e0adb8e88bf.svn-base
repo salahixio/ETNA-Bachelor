@@ -1,0 +1,23 @@
+//Ajout d'une base de données
+$("#add-bd").click(function() {
+	var value = document.getElementById("new-bd").value;
+	$('<li id=""><a href="#">'+ value +'</a></li>').appendTo($('#navbar'));
+	document.getElementById("new-bd").value = '';
+});
+
+//Renommer la base de données
+$("#rename-base").click(function() {
+	if ($( this )[0].innerHTML == "Renommer")
+		{
+			$( this )[0].innerHTML = "Sauvegarder";
+			var value = document.getElementById("name-bd").innerHTML;
+			document.getElementById("name-bd").innerHTML = "<input type='text' class='form-control' value='" + value +"'>";
+		}
+		else
+		{
+			var value = document.getElementById("name-bd").firstChild.value;
+			document.getElementById("navbar").getElementsByClassName("active")[0].firstChild.innerHTML = value;
+			$( this )[0].innerHTML = "Renommer";
+			document.getElementById("name-bd").innerHTML = value;
+		}
+});

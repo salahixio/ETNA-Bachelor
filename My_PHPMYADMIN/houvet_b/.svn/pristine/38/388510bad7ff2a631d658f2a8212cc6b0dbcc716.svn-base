@@ -1,0 +1,160 @@
+body
+{
+	background-color: rgb(37, 40, 48);
+	padding: 50px;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	color: #FFFFFF;
+}
+
+/* Div tables */
+
+#tables
+{
+	display: inline-block;
+	vertical-align: top;
+	padding-left: 100px;
+	width: 900px;
+}
+
+#base
+{
+	display: inline-block;
+	width: 570px;
+}
+
+#modif-base
+{
+	display: inline-block;
+	vertical-align: bottom;
+}
+
+#infos-base
+{
+	color: #AEAEAE;
+}
+
+.elem
+{
+	color: #AEAEAE;
+}
+
+.btn
+{
+	margin-left: 10px;
+}
+
+hr
+{
+	border-color : #AEAEAE;
+}
+
+#infos-table
+{
+	display: inline-block;
+}
+
+#new-table
+{
+	margin: auto;
+	width: 150px;
+}
+
+.select-table:hover > .elem
+{
+	color: #FFFFFF;
+}
+
+.select-table:hover
+{
+	background-color: #29A9DB;
+}
+
+#add-table
+{
+	margin-top: 5px;
+}
+
+/* Left NaveBar */
+
+h5
+{
+	color : #AEAEAE;	
+}
+
+a, a:hover, a:focus
+{
+	color: #FFFFFF;
+	border-radius: 4px;
+	display: block;
+	padding: 7px;
+}
+
+li
+{
+	list-style-type: none;
+}
+
+ul
+{
+	padding-left: 0px;
+}
+
+li > a:hover
+{
+	text-decoration: none;
+	background-color: #AEAEAE;
+}
+
+#search
+{
+	background-color: #AEAEAE;
+	border: 0;
+}
+
+#icon-search
+{
+	position: absolute;
+	top: 135px;
+	left: 212px;
+	padding: 7px 10px;
+	border: 0;
+	background-color: #AEAEAE;
+}
+
+#nav
+{
+	display: inline-block;
+	padding-top: 50px;
+	width: 200px;
+}
+
+#navbar
+{
+	padding-top: 20px;
+}
+
+.active > a,
+.active > a:hover,
+.active > a:focus {
+  color: #FFFFFF;
+  background-color: #29A9DB;
+}
+
+#ajout-bd
+{
+	margin-top: 5px;
+}
+
+#new-bd
+{
+	width: 120px;
+	display: inline-block;
+}
+
+.scrollable
+{
+	overflow-y: auto;
+	height: 300px;
+}
+
