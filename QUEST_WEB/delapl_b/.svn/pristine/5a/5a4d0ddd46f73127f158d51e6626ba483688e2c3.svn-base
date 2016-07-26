@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title></title>
+        <meta charset="utf-8" />		
+		<meta name="language" content="Fr" />
+	</head>
+	<body>
+		<form>
+			 <input type="text" id="texte" maxlength="5" /><br />
+			 <input type="email" /><br />
+			 <input type="password" id="pass" /><br />
+			 <input type="date" id="date_naissance" name="date_naissance" required /><br />
+			 <input type="text" id="readonly" placeholder="inscription" readonly /><br />
+			 <input type="text" id="disabled" disabled /><br />
+			 <input type="radio" name="radio" id="radio1" checked /><br />
+			 <input type="radio" name="radio" id="radio2" /><br />
+			 <input type="checkbox" name="check" id="check1" checked/><br />
+			 <input type="checkbox" name="check" id="check2" /><br />
+			 <select name="pays" id="pays">
+           		<option value="france">France</option>
+           		<option value="espagne">Espagne</option>
+           		<option value="italie">Italie</option>
+           		<option value="royaume-uni">Royaume-Uni</option>
+           		<option value="canada">Canada</option>
+           		<option value="etats-unis">États-Unis</option>
+           		<option value="chine">Chine</option>
+           		<option value="japon">Japon</option>
+       		</select><br />
+       		<textarea name="textarea" id="textarea" rows="8" cols="50"></textarea><br />
+       		<input type="reset" value="Annuler" />
+       		<input type="submit" value="Envoyer" />
+		</form>
+	</body>
+</html>

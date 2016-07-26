@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Le javascript</title>
+        <link rel="stylesheet" type="text/css" href="calc.css">
+    </head>
+    <body>
+    	<header class="container"><h4>La calculatrice</h4></header>
+	    <div class="container">
+	    	<div class="row">
+	    		<h6>Résultat:</h6>
+	    		<div class="result"></div>
+	    	</div>
+	    	<div class="row">
+				<button class="btn" onclick="put_nbr(this.innerHTML);">7</button>
+				<button class="btn" onclick="put_nbr(this.innerHTML);">8</button>
+				<button class="btn" onclick="put_nbr(this.innerHTML);">9</button>
+				<button class="btn" onclick="put_operator(this.innerHTML);">/</button>
+			</div>
+			<div class="row">
+				<button class="btn" onclick="put_nbr(this.innerHTML);">4</button>
+				<button class="btn" onclick="put_nbr(this.innerHTML);">5</button>
+				<button class="btn" onclick="put_nbr(this.innerHTML);">6</button>
+				<button class="btn" onclick="put_operator(this.innerHTML);">*</button>
+			</div>
+			<div class="row">
+				<button class="btn" onclick="put_nbr(this.innerHTML);">1</button>
+				<button class="btn" onclick="put_nbr(this.innerHTML);">2</button>
+				<button class="btn" onclick="put_nbr(this.innerHTML);">3</button>
+				<button class="btn" onclick="put_operator(this.innerHTML);">-</button>
+			</div>
+			<div class="row">
+				<button class="btn" onclick="put_nbr(this.innerHTML);">0</button>
+				<button class="btn" onclick="put_operator(this.innerHTML);">+</button>
+				<button class="btn" onclick="calculate();">=</button>
+				<button class="btn" onclick="reset();">C</button>
+			</div>	
+		</div>
+		<div id="results"></div>
+		<footer>
+			<script type="text/javascript" src="calc.js"></script>
+		</footer>
+	</body>
+</html>

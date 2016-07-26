@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Le javascript</title>
+        <link rel="stylesheet" type="text/css" href="date.css">
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lobster">
+    </head>
+    <body id="body">
+    	<canvas id="canvas">
+    		
+    	</canvas>
+    	<div class="container">
+    		<h2>Christmas Dater!!!</h2>
+			<div class="row">
+				<input type="text" name="date" placeholder="yyyy-mm-dd hh:ii:ss" />
+			</div>
+			<div class="row">
+				<button class="x-masbtn" onclick="calculate_age()">Mon age?</button>
+				<button class="x-masbtn" onclick="calculate_timestamp()">Mon age en timestamp?</button>
+				<button class="x-masbtn" onclick="noel()">Vivement Noël!</button>
+			</div>
+			<div class="row">
+				<button class="x-masbtn" onclick="calculate_minutes()">Combien de minutes depuis ma naissance?</button>
+				<button class="x-masbtn" onclick="calculate_jours()">Combien de jour avant mon anniversaire?</button>
+			</div>
+		</div>
+		<footer>
+			<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+			<script type="text/javascript" src="snow.js"></script>
+			<script type="text/javascript" src="date.js"></script>
+		</footer>
+    </body>	
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title></title>
+        <meta charset="utf-8" />		
+		<meta name="language" content="Fr" />
+	</head>
+	<body>
+		<table border="1">
+			<thead>
+				<tr>
+					<td>thead</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td colspan="2"></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td rowspan="2"></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td>tfoot</td>
+				</tr>
+			</tfoot>
+		</table>
+	</body>
+</html>

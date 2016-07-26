@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title></title>
+        <meta charset="utf-8" />		
+		<meta name="language" content="Fr" />
+		<link rel="stylesheet" href="" />
+		<script type="text/javascript" src=""></script>
+	</head>
+	<body>
+		<table border="1">
+			<thead>
+				<tr>
+					<td colspan = "2">1</td>
+					<td>2</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>3</td>
+					<td rowspan = "2">4</td>
+					<td>5</td>
+				</tr>
+				<tr>
+					<td>6</td>
+					<td>7</td>
+				</tr>
+			</tbody>
+			<tfoot>
+			</tfoot>
+		</table>
+	</body>
+</html>

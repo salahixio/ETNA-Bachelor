@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Le javascript</title>
+    </head>
+    <body>
+    	<header><h4>Les chaines de caractère et les tableaux</h4></header>
+	    <div>
+			<div id="fccitation">On est les enfants oubliés de l’histoire mes amis. On n’a pas de but ni de vraie place. On n’a pas de grande guerre, pas de grande dépression. Notre grande guerre est spirituelle, notre grande dépression c’est nos vies.</div>
+			<button class="btn" onclick="cut_sentences();">Séparer les phrases entre elles</button>
+			<button class="btn" onclick="replace_ponctuation();">Retirer la ponctuation</button>
+			<button class="btn" onclick="add_author();">Ajouter l'auteur à la fin de la phrase</button>
+			<button class="btn" onclick="sort_words();">Trier</button>
+			<input type="text" name="key" value="" /><button class="btn" onclick="search_word();">Chercher le mot</button>
+		</div>
+		<div id="results"></div>
+		<footer>
+			<script type="text/javascript" src="citation.js"></script>
+		</footer>
+	</body>
+</html>

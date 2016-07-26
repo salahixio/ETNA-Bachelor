@@ -1,0 +1,65 @@
+#table
+{
+	width: 100%;
+	border-collapse: collapse;
+}
+
+th
+{
+	font-weight: bold;
+}
+
+tr
+{
+	border-top: 1px solid #E1E1E8;
+	border-bottom: 1px solid #E1E1E8;
+}
+
+#table > thead
+{
+	background-color: #F7F7F9;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+}
+
+#table > tbody > tr > td:nth-child(4)
+{
+	text-align: center;
+	padding: 5px;
+	margin: 5px;
+}
+
+#table > tbody > tr > td > button
+{
+	white-space: nowrap;
+	text-align: center;
+	color: white;
+	border-radius: 5px;
+}
+
+.green
+{
+	background-color: green;
+	border-color: DarkGreen;
+}
+
+.green:hover
+{
+	background-color: LightGreen;
+}
+
+.red
+{
+	background-color: #D9534F;
+	border-color: DarkRed;
+}
+
+.red:hover
+{
+	background-color: red;
+}
+
+button[disabled]
+{
+	color: blue !important;
+}

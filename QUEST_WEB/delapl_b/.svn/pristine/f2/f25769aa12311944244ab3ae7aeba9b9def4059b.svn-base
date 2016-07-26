@@ -1,0 +1,181 @@
+body {
+	background-color: #EBEBEF;
+	color: #1A1A22;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 11px;
+	line-height: 2;
+}
+
+#header
+{
+	background-color: rgba(0, 0, 0, 0.7);
+	border-bottom: 1px solid #000000;
+	padding-left: 5%;
+	height: 50px;
+}
+
+#header small
+{
+	font-size: 7px;
+}
+
+#header h1,h2,h3,h4,h5,h6
+{
+	color : white;
+}
+
+.container
+{
+	padding-left: 3%;
+	padding-right: 3%;
+}
+
+h1.subtitle,h2.subtitle,h3.subtitle,h4.subtitle,h5.subtitle,h6.subtitle
+{
+	color: gray;
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+a.plink:hover
+{
+	text-decoration: none;
+	color: SkyBlue;
+	font-style: italic;
+}
+
+section#jumbo
+{
+	background-color: #F7F7F9;
+	border: 1px solid #E1E1E8;
+	border-radius: 4px;
+}
+
+#table
+{
+	width: 100%;
+	border-collapse: collapse;
+}
+
+th
+{
+	font-weight: bold;
+}
+
+tr
+{
+	border-top: 1px solid #E1E1E8;
+	border-bottom: 1px solid #E1E1E8;
+}
+
+#table > thead
+{
+	background-color: #F7F7F9;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+}
+
+#table > tbody > tr > td:nth-child(4)
+{
+	text-align: center;
+	padding: 5px;
+	margin: 5px;
+}
+
+#table > tbody > tr > td > button
+{
+	white-space: nowrap;
+	text-align: center;
+	color: white;
+	border-radius: 5px;
+}
+
+.green
+{
+	background-color: green;
+	border-color: DarkGreen;
+}
+
+.green:hover
+{
+	background-color: LightGreen;
+}
+
+.red
+{
+	background-color: #D9534F;
+	border-color: DarkRed;
+}
+
+.red:hover
+{
+	background-color: red;
+}
+
+button[disabled]
+{
+	color: blue !important;
+}
+
+section > .row
+{
+	display: grid;
+	grid-template-columns: 33% 33% 33%;
+	grid-template-rows: 700px;
+}
+
+.col-4
+{
+	padding-top: 2%;
+	padding-bottom: 2%;
+	padding-left: 7%;
+	padding-right: 7%;
+}
+
+.imgcharacters
+{
+	width : 200px;
+	height: 200px;
+	border-radius: 100%;
+	margin: auto;
+	display: block;
+}
+
+.col-3
+{
+	padding-top: 2%;
+	padding-bottom: 2%;
+	padding-left: 7%;
+	padding-right: 7%;
+}
+
+footer > .row
+{
+	display: grid;
+	grid-template-columns: 25% 25% 25% 25%;
+	grid-template-rows: 200px;
+	border-top: solid 1px gray;
+}
+
+footer
+{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background-attachment: scroll;
+}
+
+.smallh6
+{
+	font-size: 8px;
+}
+
+.psmall
+{
+	font-size: 8px;
+}
+
+.footlink:hover
+{
+	text-decoration: none;
+	color: gray;
+}

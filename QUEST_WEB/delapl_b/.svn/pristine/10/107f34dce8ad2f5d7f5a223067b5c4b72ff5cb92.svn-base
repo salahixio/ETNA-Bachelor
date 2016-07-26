@@ -1,0 +1,7 @@
+body {
+	background-color: #000000;
+	color: #FFFFFF;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 18px;
+	line-height: 2.5;
+}

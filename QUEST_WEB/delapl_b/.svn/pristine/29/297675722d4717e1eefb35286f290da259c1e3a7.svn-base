@@ -1,0 +1,6 @@
+section#jumbo
+{
+	background-color: #F7F7F9;
+	border: 1px solid #E1E1E8;
+	border-radius: 4px;
+}
