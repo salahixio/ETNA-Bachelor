@@ -1,0 +1,38 @@
+##
+## Makefile for foundations in /Users/antoine/Documents/ETNA/C/C/Foundations/delapl_b
+## 
+## Made by DELAPLACE Antoine
+## Login   <delapl_b@etna-alternance.net>
+## 
+## Started on  Wed Apr 27 12:35:18 2016 DELAPLACE Antoine
+## Last update Wed Apr 27 15:31:37 2016 DELAPLACE Antoine
+##
+CC	= gcc
+NAME	= fondation
+SRC	= src/connect_socket.c	\
+	  src/print_usage.c	\
+	  src/main.c
+OBJ	= $(SRC:%.c=%.o)
+CFLAGS  = -W -Wall -Wextra -Werror
+LDFLAGS = -L lib -lmy
+RM	= rm -f
+MAKE	= make -C lib/
+
+all:		makelib $(NAME)
+
+makelib:
+		$(MAKE)
+
+$(NAME):	$(OBJ)
+		$(CC) $(OBJ) -o $(NAME) $(LDFLAGS)
+
+clean:
+		$(RM) $(OBJ)
+
+fclean:		clean
+		$(RM) $(NAME)
+
+re:		fclean all
+
+rm:		makelib $(NAME)
+		$(RM) $(OBJ)

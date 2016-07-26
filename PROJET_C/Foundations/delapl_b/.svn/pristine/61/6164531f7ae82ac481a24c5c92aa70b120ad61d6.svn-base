@@ -1,0 +1,19 @@
+/*
+** print_usage.c for foundations in /Users/antoine/Documents/ETNA/C/C/Foundations/delapl_b/src
+**
+** Made by DELAPLACE Antoine
+** Login   <delapl_b@etna-alternance.net>
+**
+** Started on  Wed Apr 27 15:27:55 2016 DELAPLACE Antoine
+** Last update Wed Apr 27 15:30:52 2016 DELAPLACE Antoine
+*/
+
+#include "../header/lib.h"
+
+void	print_usage()
+{
+  my_putstr("#---------------------------------------------------#\n");
+  my_putstr("|             Utilisation du programme :            |\n");
+  my_putstr("|  ./fondation --ip [Votre ip] --port [Votre port]  |\n");
+  my_putstr("#---------------------------------------------------#\n");
+}

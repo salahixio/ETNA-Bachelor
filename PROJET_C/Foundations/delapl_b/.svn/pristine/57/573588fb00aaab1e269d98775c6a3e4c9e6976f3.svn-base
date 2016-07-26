@@ -1,0 +1,22 @@
+/*
+** lib.h for foundations in /Users/antoine/Documents/ETNA/C/C/Foundations/delapl_b/header
+**
+** Made by DELAPLACE Antoine
+** Login   <delapl_b@etna-alternance.net>
+**
+** Started on  Wed Apr 27 15:13:42 2016 DELAPLACE Antoine
+** Last update Wed Apr 27 15:17:01 2016 DELAPLACE Antoine
+*/
+
+#ifndef LIB_H_
+# define LIB_H_
+
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+void                    my_putstr(char *str);
+
+#endif /* !LIB_H_ */

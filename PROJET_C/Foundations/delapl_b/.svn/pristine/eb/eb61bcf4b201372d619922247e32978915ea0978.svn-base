@@ -1,0 +1,33 @@
+/*
+** print.c for foundations in /Users/antoine/Documents/ETNA/C/C/Foundations/delapl_b/src
+**
+** Made by DELAPLACE Antoine
+** Login   <delapl_b@etna-alternance.net>
+**
+** Started on  Wed Apr 27 15:27:55 2016 DELAPLACE Antoine
+** Last update Wed Apr 27 15:38:38 2016 DELAPLACE Antoine
+*/
+
+#include "../header/lib.h"
+
+void	print_errors()
+{
+  my_putstr("#---------------------------------------------------#\n");
+  my_putstr("|             Utilisation du programme :            |\n");
+  my_putstr("|  ./fondation --ip [Votre ip] --port [Votre port]  |\n");
+  my_putstr("#---------------------------------------------------#\n");
+}
+
+void	print_usage()
+{
+  my_putstr("#---------------------------------------------------#\n");
+  my_putstr("|           Liste des commandes possibles :         |\n");
+  my_putstr("|                   /auth                           |\n");
+  my_putstr("|                   /list                           |\n");
+  my_putstr("|                   /hs                             |\n");
+  my_putstr("|                   /psychohistory                  |\n");
+  my_putstr("|                   /getstatus [prénom]:[nom]       |\n");
+  my_putstr("|                   /me                             |\n");
+  my_putstr("|                   /setstatus [nouveau statut]     |\n");
+  my_putstr("#---------------------------------------------------#\n");
+}

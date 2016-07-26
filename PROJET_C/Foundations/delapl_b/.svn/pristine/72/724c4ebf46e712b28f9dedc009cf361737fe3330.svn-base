@@ -1,0 +1,26 @@
+/*
+** play_cmd.c for foundations in /Users/antoine/Documents/ETNA/C/C/Foundations/delapl_b/src
+**
+** Made by DELAPLACE Antoine
+** Login   <delapl_b@etna-alternance.net>
+**
+** Started on  Wed Apr 27 16:31:58 2016 DELAPLACE Antoine
+** Last update Wed Apr 27 17:21:01 2016 DELAPLACE Antoine
+*/
+
+#include "../header/lib.h"
+
+int		play_cmd(int sock)
+{
+  char		*entry;
+
+  my_putstr("Veuillez saisir votre commande\n");
+  entry = readLine();
+  if (my_strcmp(entry, "\bye") == 0)
+    return (-1);
+  write(sock, entry, my_strlen(entry));
+  read(sock, entry, 10);
+  write (0, entry, 10);
+  free(entry);
+  return (0);
+}

@@ -1,0 +1,22 @@
+/*
+** connect_socket.c for foundations in /Users/antoine/Documents/ETNA/C/C/Foundations/delapl_b
+**
+** Made by DELAPLACE Antoine
+** Login   <delapl_b@etna-alternance.net>
+**
+** Started on  Wed Apr 27 12:26:02 2016 DELAPLACE Antoine
+** Last update Wed Apr 27 12:27:14 2016 DELAPLACE Antoine
+*/
+
+int			connect_socket()
+{
+  int			sock;
+  struct sockaddr_in	sockaddr;
+
+  sock = socket(AF_INET, SOCK_STREAM, 0);
+  sockaddr.sin_addr.s_addr = inet_addr("127.0.0.1");
+  sockaddr.sin_family = AF_INET;
+  sockaddr.sin_port = htons(4242);
+  connect(sock, (struct sockaddr *)&sockaddr, sizeof(sockaddr));
+  return (sock);
+}
