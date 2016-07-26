@@ -1,0 +1,170 @@
+body
+{
+	background-color: rgb(37, 40, 48);
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	color: #FFFFFF;
+}
+
+/* Div tables */
+
+.color-gray
+{
+	border-radius: 5px;
+	background-color: #AEAEAE;
+}
+
+#tables
+{
+	display: inline-block;
+	vertical-align: top;
+	padding-left: 260px;
+	width: 95%;
+}
+
+#list-tables
+{
+	padding-right: 0px;
+}
+
+#base, #infos
+{
+	display: inline-block;
+	width: 630px;
+}
+
+#modif-base, #return-list
+{
+	display: inline-block;
+	vertical-align: bottom;
+}
+
+#stats-base, #stats-table
+{
+	color: #AEAEAE;
+}
+
+.elem
+{
+	color: #AEAEAE;
+}
+
+.btn
+{
+	margin-left: 10px;
+}
+
+hr
+{
+	border-color : #AEAEAE;
+}
+
+#infos-table
+{
+	display: inline-block;
+}
+
+#new-table
+{
+	margin: auto;
+	width: 150px;
+}
+
+.select-table:hover > .elem
+{
+	color: #FFFFFF;
+}
+
+.select-table:hover
+{
+	background-color: #29A9DB;
+}
+
+#add-table
+{
+	margin-top: 5px;
+}
+
+.save-table
+{
+	visibility: hidden;
+}
+
+/* Left NaveBar */
+
+h5
+{
+	color : #AEAEAE;	
+}
+
+a, a:hover, a:focus
+{
+	color: #FFFFFF;
+	border-radius: 4px;
+	display: block;
+	padding: 7px;
+}
+
+li
+{
+	list-style-type: none;
+}
+
+ul
+{
+	padding-left: 0px;
+}
+
+li > a:hover:not(.active)
+{
+	background-color: #AEAEAE;
+}
+
+li > a:hover
+{
+	text-decoration: none;
+}
+
+#nav
+{
+	padding-left: 10px;
+	position: fixed;
+	display: inline-block;
+	padding-top: 50px;
+	width: 215px;
+}
+
+#navbar
+{
+	padding-top: 10px;
+}
+
+.active {
+  color: #FFFFFF;
+  background-color: #29A9DB;
+}
+
+#ajout-db
+{
+	margin-top: 5px;
+}
+
+#new-db
+{
+	width: 120px;
+	display: inline-block;
+}
+
+.scrollable
+{
+	overflow-y: auto;
+	height: 500px;
+	padding-right: 10px;
+}
+
+/* Modal */
+.modal-body, .modal-title
+{
+	color : black;
+}
+
