@@ -1,0 +1,3 @@
+SELECT LOWER(TITRE) AS `titres_min`
+FROM etna_tp.film
+WHERE ID BETWEEN 43 AND 83;

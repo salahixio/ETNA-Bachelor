@@ -1,0 +1,2 @@
+SELECT SHA1(TITRE) AS Titres_SHA1, MD5(TITRE) AS Titres_MD5
+FROM etna_tp.film;

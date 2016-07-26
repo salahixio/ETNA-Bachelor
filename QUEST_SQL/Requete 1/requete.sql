@@ -1,0 +1,3 @@
+SELECT TITRE AS 'Titres films'
+FROM etna_tp.film
+WHERE TITRE LIKE "%E" AND (GENRE_ID > 0 AND GENRE_ID < 4);
