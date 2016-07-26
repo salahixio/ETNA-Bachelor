@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>BNP Paribas</title>
+        <link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">	
+        <link href="../css/default.css" rel="stylesheet">	
+        <link href="../css/user.css" rel="stylesheet">	
+    </head>
+    <body>
+		<header>
+			<nav class="navbar navbar-default navbar-fixed-top">
+        		<div class="container">
+            		<div class="navbar-header">
+						<img src="../img/logo.png" height="50px" width="200px">
+	            	</div>
+		            <div id="navbar">
+			            <ul class="nav navbar-nav">
+				            <li><a href="../index.html">Accueil</a></li>
+				            <li class="active"><a href="#">Mes infos</a></li>
+				            <li><a href="../index.html">Se déconnecter</a></li>
+						</ul>
+						<div class="navbar-form navbar-right">
+							<form method="post">
+								<input type="text" id="texte" />
+								<input type="submit" value="Rechercher" />
+							</form>
+		            	</div>
+		            </div>
+          		</div>
+        	</nav>
+		</header>
+		<div class="container">
+	    	<div class="row">
+	        	<div class="col-sm-3 col-md-2 sidebar">
+	          		<ul class="nav nav-sidebar">
+	            		<li id="infos" class="active"><a href="#">Informations Personnelles</a></li>
+	            		<li id="droits"><a href="#">Ayants-droits</a></li>
+	            		<li id="bancaire"><a href="#">Informations bancaires</a></li>
+	            		<li id="contact"><a href="#">Contact</a></li>
+	          		</ul>
+	        	</div>
+    		</div>
+    	</div>
+    	<section id="infos_perso" class="container">
+				<div class="form-group">
+			    	<label for="lastname">Nom</label>
+			    	<input type="text" class="form-control" id="lastname" value="Delap" readonly>
+				</div>
+				<div class="form-group">
+			    	<label for="firstname">Prénom</label>
+			    	<input type="text" class="form-control" id="firstname" value="Tonio" readonly>
+				</div>
+			  	<div class="form-group">
+			    	<label for="adresse">Adresse</label>
+			    	<input type="text" class="form-control" id="adresse" value="Ivry sur Seine" readonly>
+			  	</div>
+			  	<div class="form-group">
+			    	<label for="phone-number">Téléphone</label>
+			    	<input type="tel" class="form-control" id="phone-number" value="0011223344" readonly>
+			  	</div>
+			  	<div class="form-group">
+			    	<label for="email">Email</label>
+			    	<input type="email" class="form-control" id="email" value="delapl_b@etna-alternance.net" readonly>
+			  	</div>
+			  	<div class="form-group">
+			    	<label for="droits">Droits</label>
+			    	<input type="text" class="form-control" id="droits" value="1200" readonly>
+			  	</div>
+			  	<button class="edit btn btn-primary">Editer</button>
+    	</section>
+    	<section id="ayants_droits" class="container hidden">
+				<div class="form-group">
+			    	<label for="name">Nom</label>
+			    	<input type="text" class="form-control" id="name" value="Delap" readonly>
+				</div>
+			  	<button id="save" class="btn btn-primary">Editer</button>
+    	</section>    	
+    	<section id="infos_bancaire" class="container hidden">
+				<div class="form-group">
+					<label for="beneficiare">Bénéficaire du compte</label>
+			    	<input type="text" class="form-control" id="beneficaire" value="Antoine DELAPLACE" readonly>
+			    </div>
+			    <div class="form-group">
+					<label for="numero_compte">Domiciliation</label>
+			    	<input type="text" class="form-control" id="numero_compte" value="LAON (02)" readonly>
+				</div>
+			    <div class="form-group">
+					<label for="rib">RIB</label>
+			    	<input type="text" class="form-control" id="rib" value="3000440809862468" readonly>
+				</div>
+			    <div class="form-group">
+					<label for="iban">IBAN</label>
+			    	<input type="text" class="form-control" id="iban" value="FR0000109281129" readonly>
+				</div>
+			    <div class="form-group">
+					<label for="bic">BIC</label>
+			    	<input type="text" class="form-control" id="bic" value="BNP65909252468" readonly>
+				</div>
+				<div class="form-group">
+			  		<button class="edit btn btn-primary">Editer</button>
+			  	</div>
+			  	<div class="row">
+			  		<div class="col-lg-3">
+			  			<h6 class="doc">Acte de naissance/Contrat de mariage</h6>
+			  		</div>
+			  		<div class="col-lg-3 progress">
+						<div id="progress1" class="progress-bar">
+						</div>
+			  		</div>
+			  		<div class="col-lg-3">
+			  			<input type="button" class="btn btn-primary" id="launch1" value="Télécharger">
+			  		</div>
+			  	</div>
+			  	<div class="row">
+			  		<div class="col-lg-3">
+			  			<h6 class="doc">Passeports et cartes d’identité</h6>
+			  		</div>
+			  		<div class="col-lg-3 progress">
+						<div id="progress2" class="progress-bar">
+						</div>
+			  		</div>
+			  		<div class="col-lg-3">
+			  			<input type="button" class="btn btn-primary" id="launch2" value="Télécharger">
+			  		</div>
+			  	</div>
+			  	<div class="row">
+			  		<div class="col-lg-3">
+			  			<h6 class="doc">Factures</h6>
+			  		</div>
+			  		<div class="col-lg-3 progress">
+						<div id="progress3" class="progress-bar">
+						</div>
+			  		</div>
+			  		<div class="col-lg-3">
+			  			<input type="button" class="btn btn-primary" id="launch3" value="Télécharger">
+			  		</div>
+			  	</div>
+    	</section>
+    	<section id="infos_contact" class="container hidden">
+    		<form>
+				<div class="form-group">
+			    	<label for="name">Votre nom</label>
+			    	<input type="text" class="form-control" id="name" value="">
+				</div>
+				<div class="form-group">
+			    	<label for="message">Votre message</label>
+			    	<textarea class="form-control" id="message" value=""></textarea>
+				</div>
+			  	<button id="send" class="btn btn-primary" type="submit">Envoyer</button>
+			</form>
+			<br>
+			<div id="map"></div>
+    	</section>      	    	
+		<footer>
+			<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    		<!-- Include all compiled plugins (below), or include individual files as needed -->
+    		<script src="https://maps.googleapis.com/maps/api/js"></script>
+    		<script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    		<script src="../js/user.js"></script>
+		</footer>
+	</body>
+</html>

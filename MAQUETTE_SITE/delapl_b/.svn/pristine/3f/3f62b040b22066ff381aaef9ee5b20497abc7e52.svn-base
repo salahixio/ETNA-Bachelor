@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>BNP Paribas</title>
+        <link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">	
+        <link href="../css/default.css" rel="stylesheet">	
+        <link href="../css/user.css" rel="stylesheet">	
+    </head>
+    <body>
+		<header>
+			<nav class="navbar navbar-default navbar-fixed-top">
+        		<div class="container">
+            		<div class="navbar-header">
+						<img src="../img/logo.png" height="50px" width="200px">
+	            	</div>
+		            <div id="navbar">
+			            <ul class="nav navbar-nav">
+				            <li><a href="../index.html">Accueil</a></li>
+				            <li class="active"><a href="#">Mes infos</a></li>
+				            <li><a href="../index.html">Se déconnecter</a></li>
+						</ul>
+						<div class="navbar-form navbar-right">
+							<form method="post">
+								<input type="text" id="texte" />
+								<input type="submit" value="Rechercher" />
+							</form>
+		            	</div>
+		            </div>
+          		</div>
+        	</nav>
+		</header>
+		<div class="container">
+	    	<div class="row">
+	        	<div class="col-sm-3 col-md-2 sidebar">
+	          		<ul class="nav nav-sidebar">
+	            		<li id="infos" class="active"><a href="#">Informations Personnelles</a></li>
+	            		<li id="droits"><a href="#">Ayants-droits</a></li>
+	            		<li id="bancaire"><a href="#">Informations bancaires</a></li>
+	            		<li id="contact"><a href="#">Contact</a></li>
+	          		</ul>
+	        	</div>
+    		</div>
+    	</div>
+    	<section id="infos_perso" class="container">
+				<div class="form-group">
+			    	<label for="lastname">Nom</label>
+			    	<input type="text" class="form-control persos" id="lastname" value="Delap" readonly>
+				</div>
+				<div class="form-group">
+			    	<label for="firstname">Prénom</label>
+			    	<input type="text" class="form-control persos" id="firstname" value="Tonio" readonly>
+				</div>
+			  	<div class="form-group">
+			    	<label for="adresse">Adresse</label>
+			    	<input type="text" class="form-control persos" id="adresse" value="Ivry sur Seine" readonly>
+			  	</div>
+			  	<div class="form-group">
+			    	<label for="phone-number">Téléphone</label>
+			    	<input type="tel" class="form-control persos" id="phone-number" value="0011223344" readonly>
+			  	</div>
+			  	<div class="form-group">
+			    	<label for="email">Email</label>
+			    	<input type="email" class="form-control persos" id="email" value="delapl_b@etna-alternance.net" readonly>
+			  	</div>
+			  	<div class="form-group">
+			    	<label for="droits">Droits</label>
+			    	<input type="text" class="form-control persos" id="droits" value="1200" readonly>
+			  	</div>
+			  	<button id="edit_infos" class="btn btn-primary">Editer</button>
+    	</section>
+    	<section id="ayants_droits" class="container hidden">
+    		<div class="table-responsive">
+				<table class="table table-striped">
+					<thead class="text-center">
+						<tr>
+							<td>Nom</td>
+							<td>Prénom</td>
+							<td>Date de naissance</td>
+							<td>Liaison familiale</td>
+							<td>Les droits</td>
+						</tr>
+					</thead>
+					<tbody class="text-center">
+						<tr>
+							<td class="elem">DELAPLACE</td>
+							<td class="elem">Mathilde</td>
+							<td class="elem">15/04/1996</td>
+							<td class="elem">Soeur</td>
+							<td class="elem">1200</td>
+							<td><button class="btn btn-primary btn-sm" onClick="edit_ligne(this)">Editer</button></td>
+							<td><button class="btn btn-danger btn-sm" onClick="remove_ligne(this)">Supprimer</button></td>
+						</tr>
+						<tr>
+							<td class="elem">Véronique</td>
+							<td class="elem">JODER</td>
+							<td class="elem">07/11/1967</td>
+							<td class="elem">Mére</td>
+							<td class="elem">1400</td>
+							<td><button class="btn btn-primary btn-sm" onClick="edit_ligne(this)">Editer</button></td>
+							<td><button class="btn btn-danger btn-sm" onClick="remove_ligne(this)">Supprimer</button></td>
+						</tr>												
+					</tbody>
+					<tfoot class="text-center">
+						<td><button id="add_item" class="btn btn-success">Ajouter</button></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tfoot>
+				</table>
+			</div>
+    	</section>    	
+    	<section id="infos_bancaire" class="container hidden">
+				<div class="form-group">
+					<label for="beneficiare">Bénéficaire du compte</label>
+			    	<input type="text" class="form-control compte" id="beneficaire" value="Antoine DELAPLACE" readonly>
+			    </div>
+			    <div class="form-group">
+					<label for="numero_compte">Domiciliation</label>
+			    	<input type="text" class="form-control compte" id="numero_compte" value="LAON (02)" readonly>
+				</div>
+			    <div class="form-group">
+					<label for="rib">RIB</label>
+			    	<input type="text" class="form-control compte" id="rib" value="3000440809862468" readonly>
+				</div>
+			    <div class="form-group">
+					<label for="iban">IBAN</label>
+			    	<input type="text" class="form-control compte" id="iban" value="FR0000109281129" readonly>
+				</div>
+			    <div class="form-group">
+					<label for="bic">BIC</label>
+			    	<input type="text" class="form-control compte" id="bic" value="BNP65909252468" readonly>
+				</div>
+				<div>
+			  		<button id="edit_compte" class="btn btn-primary btn-sm">Editer</button>
+			  	</div>
+			  	<div class="row">
+			  		<div class="col-lg-3">
+			  			<h6 class="doc">Acte de naissance/Contrat de mariage</h6>
+			  		</div>
+			  		<div class="col-lg-3 progress">
+						<div id="progress1" class="progress-bar">
+						</div>
+			  		</div>
+			  		<div class="col-lg-3">
+			  			<input type="button" class="btn btn-primary btn-sm" id="launch1" value="Télécharger">
+			  		</div>
+			  	</div>
+			  	<div class="row">
+			  		<div class="col-lg-3">
+			  			<h6 class="doc">Passeports et cartes d’identité</h6>
+			  		</div>
+			  		<div class="col-lg-3 progress">
+						<div id="progress2" class="progress-bar">
+						</div>
+			  		</div>
+			  		<div class="col-lg-3">
+			  			<input type="button" class="btn btn-primary btn-sm" id="launch2" value="Télécharger">
+			  		</div>
+			  	</div>
+			  	<div class="row">
+			  		<div class="col-lg-3">
+			  			<h6 class="doc">Factures</h6>
+			  		</div>
+			  		<div class="col-lg-3 progress">
+						<div id="progress3" class="progress-bar">
+						</div>
+			  		</div>
+			  		<div class="col-lg-3">
+			  			<input type="button" class="btn btn-primary btn-sm" id="launch3" value="Télécharger">
+			  		</div>
+			  	</div>
+    	</section>
+    	<section id="infos_contact" class="container hidden">
+    		<div class="row">
+    			<div class="col-lg-5">
+					<div class="form-group">
+				    	<label for="name">Votre nom</label>
+				    	<input type="text" class="form-control contacts" id="name" value="">
+					</div>
+					<div class="form-group">
+				    	<label for="message">Votre message</label>
+				    	<textarea class="form-control contacts" id="message" value=""></textarea>
+					</div>
+				  	<button id="send" class="btn btn-primary">Envoyer</button>
+			 	</div>
+				<div id="map" class="col-lg-5"></div>
+			</div>
+    	</section>      	    	
+		<footer>
+			<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    		<!-- Include all compiled plugins (below), or include individual files as needed -->
+    		<script src="https://maps.googleapis.com/maps/api/js"></script>
+    		<script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    		<script src="../js/user.js"></script>
+		</footer>
+	</body>
+</html>
