@@ -1,0 +1,20 @@
+#
+# Cookbook Name:: proxyconf
+# Recipe:: default
+#
+# Copyright (c) 2016 The Authors, All Rights Reserved.
+
+execute 'enable_site' do
+  command 'nxensite balance'
+  action :nothing
+end
+
+service 'nginx' do
+  supports :restart => true
+end
+
+template '/etc/nginx/sites-available/balance' do
+  source 'balance'
+  notifies :run, 'execute[enable_site]', :immediately
+  notifies :restart, 'service[nginx]', :immediately
+end

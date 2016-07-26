@@ -1,0 +1,11 @@
+upstream balance {
+  server 192.168.1.1;
+  server 192.168.1.3;
+}
+server {
+  listen   80;
+
+  location / {
+    proxy_pass http://balance;
+  }
+}

@@ -1,0 +1,51 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+
+
+Vagrant.configure(2) do |config|
+	config.vm.define "web1" do |web1|
+		web1.vm.box = "deimosfr/debian-jessie"
+
+		web1.vm.network "forwarded_port", guest: 80, host: 8080
+
+		web1.vm.network "private_network", ip: "192.168.1.4"
+
+		web1.vm.synced_folder "../Web1/web1_docroot/", "/var/www/html/"
+
+		web1.vm.provision "chef_solo" do |chef|
+			chef.cookbooks_path = "../chef-repo/cookbooks"
+			chef.add_recipe "apache2"
+			chef.add_recipe "default-route"
+			chef.json = { :apache => { :default_site_enabled => true } }
+		end
+	end
+	config.vm.define "web2" do |web2|
+		web2.vm.box = "deimosfr/debian-jessie"
+
+		web2.vm.network "forwarded_port", guest: 80, host: 8081
+
+		web2.vm.network "private_network", ip: "192.168.1.3"
+
+		web2.vm.synced_folder "../Web2/web2_docroot/", "/var/www/html/"
+
+		web2.vm.provision "chef_solo" do |chef|
+			chef.cookbooks_path = "../chef-repo/cookbooks"
+			chef.add_recipe "apache2"
+			chef.add_recipe "default-route"
+			chef.json = { :apache => { :default_site_enabled => true } }
+		end
+	end
+	config.vm.define "gateway" do |gateway|
+		gateway.vm.box = "deimosfr/debian-jessie"
+
+		gateway.vm.network "private_network", ip: "192.168.1.254"
+
+		gateway.vm.network "public_network", bridge: "en5: Ethernet Thunderbolt"
+
+		gateway.vm.provision "chef_solo" do |chef|
+			chef.cookbooks_path = "../chef-repo/cookbooks"
+			#chef.add_recipe "default-route"
+		end
+	end
+end

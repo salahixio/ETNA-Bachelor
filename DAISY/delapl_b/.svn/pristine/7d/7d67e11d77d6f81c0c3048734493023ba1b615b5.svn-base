@@ -1,0 +1,23 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "deimosfr/debian-jessie"
+
+  # config.vm.box_check_update = false
+
+  config.vm.network "forwarded_port", guest: 80, host: 8084
+
+  config.vm.network "private_network", ip: "192.168.1.4"
+
+  # config.vm.network "public_network"
+
+  config.vm.synced_folder "web1_docroot/", "/var/www/html/"
+
+  config.vm.provision "chef_solo" do |chef|
+    chef.cookbooks_path = "../chef-repo/cookbooks"
+    chef.add_recipe "apache2"
+    chef.add_recipe "default-route"
+    chef.json = { :apache => { :default_site_enabled => true } }
+  end
+end

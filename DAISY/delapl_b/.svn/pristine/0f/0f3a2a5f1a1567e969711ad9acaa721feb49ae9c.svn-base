@@ -1,0 +1,15 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "deimosfr/debian-jessie"
+
+  config.vm.network "private_network", ip: "192.168.1.254"
+
+  config.vm.network "public_network", bridge: "en5: Ethernet Thunderbolt"
+
+  config.vm.provision "chef_solo" do |chef|
+    chef.cookbooks_path = "../chef-repo/cookbooks"
+#    chef.add_recipe "default-route"
+  end
+end
