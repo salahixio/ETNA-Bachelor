@@ -1,6 +1,0 @@
-export default class ArticlesController {
-
-    constructor($scope) {
-        this.scope = $scope;
-    }
-}

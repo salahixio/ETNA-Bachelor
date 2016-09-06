@@ -1,4 +1,0 @@
-import Example from './example';
-
-let example = new Example('Coucou');
-alert(example.getTexte());

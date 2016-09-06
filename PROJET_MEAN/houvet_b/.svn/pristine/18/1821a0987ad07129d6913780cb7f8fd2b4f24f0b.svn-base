@@ -1,6 +1,0 @@
-export default class HeaderController {
-
-    constructor($scope) {
-        this.scope = $scope;
-    }
-}
