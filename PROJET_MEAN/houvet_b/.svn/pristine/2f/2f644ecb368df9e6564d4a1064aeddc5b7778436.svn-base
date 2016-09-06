@@ -1,0 +1,10 @@
+export default class Example {
+
+    constructor(texte) {
+        this.texte = texte;
+    }
+
+    getTexte() {
+        return this.texte;
+    }
+}

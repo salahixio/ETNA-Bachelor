@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+        <script src="build/main.bundle.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+        <link href="css/styles.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div ng-app="blog" id="header">
+            <section ng-controller="HeaderController">
+                <nav class="navbar navbar-fixed-top">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">MeanBlog</a>
+                        <form class="navbar-right form-inline" role="login" id="login">
+                                <input id="pseudo" class="form-control" placeholder="Pseudo" ng-model="pseudo"/>
+                                <input id="mdp" class="form-control" placeholder="Mot de passe" ng-model="mdp"/>
+                                <button class="btn btn-success">Connexion</button>
+                                <img src="app/img/facebook-explode.png" width="35px" heigth="35px"/>
+                                <img src="app/img/twitter-explode.png" width="45px" heigth="45px" />
+                                <button class="btn btn-primary">Inscription</button>
+                        </form>
+                    </div>
+                </nav>
+            </section>
+            <section >
+
+            </section>
+        </div>
+    </body>
+</html>

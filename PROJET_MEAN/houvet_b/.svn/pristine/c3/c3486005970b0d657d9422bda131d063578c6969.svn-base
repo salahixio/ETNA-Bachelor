@@ -1,0 +1,5 @@
+import Article from './modules/Article';
+import Backoffice from './modules/Backoffice';
+
+let article = new Article();
+let backoffice = new Backoffice();

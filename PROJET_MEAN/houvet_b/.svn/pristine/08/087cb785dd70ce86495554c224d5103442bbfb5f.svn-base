@@ -1,0 +1,3 @@
+import Blog from './Blog';
+
+let blog = new Blog();

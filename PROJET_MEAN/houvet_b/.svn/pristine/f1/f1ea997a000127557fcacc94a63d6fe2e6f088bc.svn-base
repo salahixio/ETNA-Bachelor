@@ -1,0 +1,16 @@
+export default class HeaderController {
+
+    constructor($scope) {
+        this.scope = $scope;
+    }
+
+    getPseudo() {
+        let scope = this.scope;
+        scope.pseudo = "";
+        scope.getPseudo = function(){
+            return (scope.pseudo);
+        };
+    }
+}
+
+

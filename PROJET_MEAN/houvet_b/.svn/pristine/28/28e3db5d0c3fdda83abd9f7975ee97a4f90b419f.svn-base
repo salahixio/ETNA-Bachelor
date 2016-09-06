@@ -1,0 +1,11 @@
+export default class ArticlesController {
+
+    constructor($scope, factoryExample) {
+        this.scope = $scope;
+        this.factoryExample = factoryExample;
+    }
+
+    getArticles($http) {
+        this.factoryExample.getArticles(this.scope, $http);
+    }
+}

@@ -1,0 +1,11 @@
+#header
+{
+    text-align : center;
+    border-bottom: black 1px solid;
+    padding-bottom: 2%;
+    padding-top: 2%;
+}
+
+#login
+{
+}

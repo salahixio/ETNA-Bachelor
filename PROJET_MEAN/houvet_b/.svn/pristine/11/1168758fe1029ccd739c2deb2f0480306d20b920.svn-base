@@ -1,0 +1,3 @@
+import Article from './modules/Article';
+
+let article = new Article();
