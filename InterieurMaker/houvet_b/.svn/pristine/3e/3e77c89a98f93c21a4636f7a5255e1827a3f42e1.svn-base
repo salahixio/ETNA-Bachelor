@@ -1,0 +1,56 @@
+#foot {
+    background-color: #BEBFC4;
+}
+
+.button {
+    background-color: #CC9A89;
+    color : black;
+}
+
+.back-gray {
+    background-color: #BEBFC4;
+}
+
+.back-lightgray {
+    background-color: #EEEEEE;
+}
+
+a {
+    color : #CC9A89;
+}
+
+a:hover {
+    color : #B28D81;
+}
+
+.button:hover {
+    background-color : #B28D81;
+}
+
+body {
+    background-color: #EEEEEE;
+}
+
+.available:hover {
+    background-color: #99CDD8;
+}
+
+.available {
+    border: dashed 1px grey;
+}
+
+.meeting {
+    background-color: #0088CC;
+    border: 1px grey;
+}
+
+#first-text {
+    /*background-image: url("../img/wood2.jpg");
+    height: 300px;*/
+
+}
+
+/*icon modal connexion*/
+.signup-panel i {
+    color: #999;
+}

@@ -1,0 +1,39 @@
+<h3 class="actual">{{ actualmonth }}</h3>
+<table>
+    <thead>
+    <tr>
+        <th>
+            <a href="{{ path('new_rdv') }}" class="button">Nouveau RDV</a>
+        </th>
+        {% for day in days %}
+            {% if loop.first %}
+                <th><a href="#" onclick="{{ path('change_date_planning', {'Date': beforeDate}) }}" class="button"><span class="prefix"><i class="fi-arrow-left"></i></span></a>{{ day }}</th>
+            {% elseif loop.last %}
+                <th>{{ day }}<a href="{{ path('change_date_planning', {'Date': afterDate}) }}" class="button"><span class="prefix"><i class="fi-arrow-right"></i></span></a></th>
+            {% else %}
+                <th>{{ day }}</th>
+            {% endif %}
+        {% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+    {% for hours, reservation in reservations %}
+        {% for key, day_reservation in reservation  %}
+            <tr>
+                {% if key == 0 %}
+                    <td>{{ hours }}</td>
+                {% else  %}
+                    <td></td>
+                {% endif %}
+                {% for date_reservation in day_reservation  %}
+                    {% if date_reservation != 0 %}
+                        <td class="meeting">{{ date_reservation }}</td>
+                    {% else %}
+                        <td></td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    {% endfor %}
+    </tbody>
+</table>

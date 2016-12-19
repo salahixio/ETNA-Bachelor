@@ -1,0 +1,59 @@
+<?php
+
+namespace PlanningBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use PlanningBundle\Entity\Planning;
+use PlanningBundle\Entity\Agent;
+use PlanningBundle\Entity\Domaine;
+use PlanningBundle\Entity\FicheIntervention;
+use UserBundle\Entity\User;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+
+
+class FicheInterventionController extends Controller
+{
+	public function saveFicheInterventionAction(Request $request)
+	{
+		// Validation du formulaire de la fiche d'intervention
+		try {
+			$post = $request->request;
+			$repository = $this->getDoctrine()->getManager()->getRepository("PlanningBundle:FicheIntervention");
+			$em = $this->getDoctrine()->getManager();
+			//$fiche = $repository->find($post->get('idFiche'));
+			//TODO : Verif que la fiche appartiesnt bien au user co.
+			//$fiche->setProbleme($post->get('issue')); // TODO : Prendre la variable du formulaire
+			//$fiche->setHabitation($post->get('home_type')); // TODO : Prendre la variable du formulaire
+			//$em->persist($fiche);
+			//$em->flush();
+			return $this->redirectToRoute('im_front_planning'); // TODO : A voir vers quoi on redirige
+		}
+		catch (Exception $e) {
+			return new Response('Probleme quelque part');
+		}
+	}
+
+	public function openFicheInterventionAction(Request $request)
+	{
+		$get = $request->query;
+		$id = $get->get('id');
+	    // Ouverture de sa fiche d'intervention
+	    $repository = $this->getDoctrine()->getManager()->getRepository("PlanningBundle:FicheIntervention");
+	    $fiche = $repository->find($id);
+		$args = array(
+			'habitation' => $fiche->getHabitation(),
+			'rapport' => $fiche->getRapport()
+		);
+		return new Response(json_encode($args));
+	}
+
+	public function newFicheInterventionAction($id)
+	{
+		//Retourne la vue pour remplir la fiche en lui passant la variable id
+		return $this->render('PlanningBundle:FicheIntervention:fiche_intervention.html.twig',array(
+				'id_fiche' => $id
+	    		)
+		);	
+	}
+}

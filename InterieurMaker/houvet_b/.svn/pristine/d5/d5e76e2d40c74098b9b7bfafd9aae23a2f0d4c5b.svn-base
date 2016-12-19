@@ -1,0 +1,33 @@
+<h3 class="actual">{{ actualmonth }}</h3>
+<table>
+    <thead>
+    <tr>
+        <th>
+            <a href="{{ path('new_rdv') }}" class="button">Nouveau RDV</a>
+        </th>
+        {% for day in days %}
+            <th>{{ day }}</th>
+        {% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+    {% for hours, reservation in reservations %}
+        {% for key, day_reservation in reservation  %}
+            <tr>
+                {% if key == 0 %}
+                    <td>{{ hours }}</td>
+                {% else  %}
+                    <td></td>
+                {% endif %}
+                {% for date_reservation in day_reservation  %}
+                    {% if date_reservation != 0 %}
+                        <td class="meeting">{{ date_reservation }}</td>
+                    {% else %}
+                        <td></td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    {% endfor %}
+    </tbody>
+</table>

@@ -1,0 +1,29 @@
+<form method="post" action="">
+    <div class="row">
+        <div class="medium-4 medium-centered columns">
+            <h2>Gestion des Agents</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="medium-4 medium-centered columns">
+            <label>Agents
+                <select id="agents" name="agents" required >
+                    <option value=""></option>
+                </select>
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="medium-4 medium-centered columns">
+            <label>Domaines
+                <br><input type="checkbox" name="" value="">Electricité
+                <br><input type="checkbox" name="" value="">Architecture
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="medium-4 medium-centered columns">
+            <button type="submit" class="button">Enregistrer</button>
+        </div>
+    </div>
+</form>

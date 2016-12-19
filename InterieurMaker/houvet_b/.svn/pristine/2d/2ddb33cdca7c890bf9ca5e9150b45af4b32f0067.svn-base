@@ -1,0 +1,27 @@
+im_front_homepage:
+    path:	/
+    defaults: {_controller: ImFrontBundle:Default:index }
+
+im_front_subscribe:
+    path:	/subscribe
+    defaults: {_controller: ImFrontBundle:Default:subscribe }
+
+im_front_subscribe_agent:
+    path:	/subscribeAgent
+    defaults: {_controller: ImFrontBundle:Default:subscribeAgent }
+
+im_front_planning:
+    path:	/planning
+    defaults: {_controller: ImFrontBundle:Default:viewReservations }
+
+new_rdv:
+    path:	/new_rdv
+    defaults: {_controller: ImFrontBundle:Default:newReservation }
+
+change_date_planning:
+    path:   /planning/{Date}
+    defaults: {_controller: ImFrontBundle:Default:viewOthersReservations }
+
+change_date_reservations:
+    path:   /new_rdv/{Date}
+    defaults: {_controller: ImFrontBundle:Default:newOthersReservation }

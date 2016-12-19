@@ -1,0 +1,3 @@
+webrtc:
+    path:   /webrtc/
+    defaults: {_controller: WebRTCBundle:Default:index }
