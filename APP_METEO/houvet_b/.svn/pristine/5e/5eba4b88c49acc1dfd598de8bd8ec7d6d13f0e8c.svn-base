@@ -1,0 +1,25 @@
+dependencies: \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/CordovaLib/Classes/Public/CDVViewController.m \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/CordovaLib/Classes/Public/CDV.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/CordovaLib/Classes/Public/CDVAvailability.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/CordovaLib/Classes/Public/CDVAvailabilityDeprecated.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/CordovaLib/Classes/Public/CDVAppDelegate.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/CordovaLib/Classes/Public/CDVViewController.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/CordovaLib/Classes/Public/CDVInvokedUrlCommand.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/CordovaLib/Classes/Public/CDVCommandDelegate.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/CordovaLib/Classes/Public/CDVCommandQueue.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/CordovaLib/Classes/Public/CDVScreenOrientationDelegate.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/CordovaLib/Classes/Public/CDVPlugin.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/CordovaLib/Classes/Public/CDVPluginResult.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/CordovaLib/Classes/Public/NSMutableArray+QueueAdditions.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/CordovaLib/Classes/Public/CDVWebViewEngineProtocol.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/CordovaLib/Classes/Public/CDVURLProtocol.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/CordovaLib/Classes/Public/CDVWhitelist.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/CordovaLib/Classes/Public/CDVTimer.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/CordovaLib/Classes/Public/CDVUserAgentUtil.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/CordovaLib/Classes/Private/CDVPlugin+Private.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVUIWebViewEngine/CDVUIWebViewDelegate.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/CordovaLib/Classes/Public/CDVConfigParser.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/CordovaLib/Classes/Public/NSDictionary+CordovaPreferences.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVLocalStorage/CDVLocalStorage.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/CordovaLib/Classes/Public/CDVCommandDelegateImpl.h

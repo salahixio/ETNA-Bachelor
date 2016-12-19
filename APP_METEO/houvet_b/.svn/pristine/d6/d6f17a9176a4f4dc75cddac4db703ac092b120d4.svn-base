@@ -1,0 +1,14 @@
+dependencies: \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/AppMeteo/Plugins/cordova-plugin-splashscreen/CDVViewController+SplashScreen.m \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/AppMeteo/Plugins/cordova-plugin-splashscreen/CDVViewController+SplashScreen.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/build/emulator/include/Cordova/CDVViewController.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/build/emulator/include/Cordova/CDVAvailability.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/build/emulator/include/Cordova/CDVAvailabilityDeprecated.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/build/emulator/include/Cordova/CDVInvokedUrlCommand.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/build/emulator/include/Cordova/CDVCommandDelegate.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/build/emulator/include/Cordova/CDVCommandQueue.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/build/emulator/include/Cordova/CDVScreenOrientationDelegate.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/build/emulator/include/Cordova/CDVPlugin.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/build/emulator/include/Cordova/CDVPluginResult.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/build/emulator/include/Cordova/NSMutableArray+QueueAdditions.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/ios/build/emulator/include/Cordova/CDVWebViewEngineProtocol.h

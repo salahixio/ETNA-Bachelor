@@ -1,0 +1,43 @@
+<ion-view view-title="{{file.name}}">
+    <ion-content class="padding">
+        <div class="row">
+            <div class="col">Nom de l'analyse</div>
+            <div class="col">{{datas.name}}</div>
+        </div>
+        <div class="row">
+            <div class="col">Min</div>
+            <div class="col">{{datas.min}}</div>
+        </div>
+        <div class="row">
+            <div class="col">Heure du Min</div>
+            <div class="col">{{datas.hour_min}}</div>
+        </div>
+        <div class="row">
+            <div class="col">Moyenne de la journée</div>
+            <div class="col">{{datas.average}}</div>
+        </div>
+        <div class="row">
+            <div class="col">Max</div>
+            <div class="col">{{datas.max}}</div>
+        </div>
+        <div class="row">
+            <div class="col">Heure du Max</div>
+            <div class="col">{{datas.hour_max}}</div>
+        </div>
+        <ion-list>
+            <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap" href="#/tab/graphs/{{file.name}}/{{datas.name}}/line">
+                <p>Graph1</p>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+            <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap" href="#/tab/graphs/{{file.name}}/{{datas.name}}/area">
+                <p>Graph2</p>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+            <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap" href="#/tab/graphs/{{file.name}}/{{datas.name}}/column">
+                <p>Graph3</p>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+        </ion-list>
+        </div>
+    </ion-content>
+</ion-view>

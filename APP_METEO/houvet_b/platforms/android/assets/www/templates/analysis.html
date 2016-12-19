@@ -1,0 +1,10 @@
+<ion-view view-title="{{file.name}}">
+  <ion-content class="padding">
+	  <ion-list>
+		  <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="col in cols" type="item-text-wrap" href="#/tab/datas/{{file.name}}/{{col.name}}">
+			  <p>{{col.name}}</p>
+			  <i class="icon ion-chevron-right icon-accessory"></i>
+		  </ion-item>
+	  </ion-list>
+  </ion-content>
+</ion-view>

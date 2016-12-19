@@ -1,0 +1,5 @@
+dependencies: \
+  /Users/antoine/Documents/ETNA/APP_METEO/AppMeteo/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVUIWebViewEngine/CDVUIWebViewDelegate.m \
+  /Users/antoine/Documents/ETNA/APP_METEO/AppMeteo/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVUIWebViewEngine/CDVUIWebViewDelegate.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/AppMeteo/platforms/ios/CordovaLib/Classes/Public/CDVAvailability.h \
+  /Users/antoine/Documents/ETNA/APP_METEO/AppMeteo/platforms/ios/CordovaLib/Classes/Public/CDVAvailabilityDeprecated.h

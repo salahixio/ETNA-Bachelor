@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/android/build/intermediates/exploded-aar/android/CordovaLib/unspecified/debug/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="873daaba9b25e7f07376989b900fc46e99a9271c">
+        <dex dex="/Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/android/build/intermediates/pre-dexed/debug/CordovaLib-unspecified-debug_99cc51b9046cbeb378090824c1a7771c8cfe7407.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/antoine/Documents/ETNA/APP_METEO/AppMeteo/platforms/android/build/intermediates/exploded-aar/android/CordovaLib/unspecified/debug/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="873daaba9b25e7f07376989b900fc46e99a9271c">
+        <dex dex="/Users/antoine/Documents/ETNA/APP_METEO/AppMeteo/platforms/android/build/intermediates/pre-dexed/debug/CordovaLib-unspecified-debug_4f4fde26a942062d575c14d354a0e29f203dc599.jar" />
+    </item>
+
+</items>

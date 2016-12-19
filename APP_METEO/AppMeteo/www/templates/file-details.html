@@ -1,0 +1,26 @@
+<ion-view view-title="{{file.name}}">
+  <ion-content class="padding">
+    <table>
+    	<thead>
+			<tr>
+				<td>Nom de l'analyse</td>
+				<td>Min</td>
+				<td>Heure du Min</td>
+				<td>Moyenne de la journée</td>
+				<td>Max</td>
+				<td>Heure du Max</td>
+			</tr>
+    	</thead>
+    	<tbody>
+    		<tr ng-repeat="table_line in file.data">
+          <td>{{table_line.name}}</td>
+          <td>{{table_line.min}}</td>
+          <td>{{table_line.hour_min}}</td>
+          <td>{{table_line.average}}</td>
+          <td>{{table_line.max}}</td>
+          <td>{{table_line.hour_max}}</td>
+    		</tr>
+    	</tbody>
+    </table>
+  </ion-content>
+</ion-view>

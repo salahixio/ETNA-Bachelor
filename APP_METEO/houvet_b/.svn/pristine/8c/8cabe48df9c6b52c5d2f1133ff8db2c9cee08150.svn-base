@@ -1,0 +1,70 @@
+angular.module('AppMeteo.services_graphs', [])
+
+    .factory('Graphs', function() {
+        var chartConfig = {
+            options: {
+                chart: {
+                }
+            },
+            series: [],
+            title: {
+            },
+            xAxis: {
+            },
+            loading: false,
+            size: {}
+        };
+
+        return {
+            setChartType: function (newType) {
+                chartConfig.series = [];
+                chartConfig.options.chart.type = newType;
+                if(newType == "column") {
+                    chartConfig.title.text = 'La rose des vents';
+                    chartConfig.options.chart.polar =  true;
+                }
+                else if (newType == "line") {
+                    chartConfig.title.text = 'Moyenne par heure';
+                    chartConfig.options.chart.polar =  false;
+                    chartConfig.xAxis.type = '';
+                    chartConfig.xAxis.categories = ['00h','01h','02h','03h','04h','05h','06h','07h','08h','09h','10h','11h','12h','13h'
+                        ,'14h','15h','16h','17h','18h','19h','20h','21h','22h','23h'];
+                }
+                else if (newType == "area") {
+                    chartConfig.title.text = 'Full data Graph';
+                    chartConfig.xAxis.type = 'datetime';
+                    chartConfig.xAxis.categories = false;
+                    chartConfig.options.chart.polar =  false;
+                }
+            },
+            setChartSeries: function (columns, datas) {
+                if (chartConfig.options.chart.type == "line") {
+                    var averageDay = [];
+                    var minDay = [];
+                    var maxDay = [];
+                    for(var j=0; j < 24; j++) {
+                        averageDay.push(columns[0].average);
+                        minDay.push(columns[0].min);
+                        maxDay.push(columns[0].max);
+                    }
+                    chartConfig.series.push({"name" : "moyenne de la journée", "data": averageDay});
+                    chartConfig.series.push({"name" : "minimum de la journée", "data": minDay});
+                    chartConfig.series.push({"name" : "maximum de la journée", "data": maxDay});
+                }
+                else if (chartConfig.options.chart.type == "area") {
+                    var tmp;
+                    console.log(datas);
+                    for(var i = 0; i < datas.length; i++) {
+                        tmp = datas[i][0];
+                        datas[i][0] = Date.parse(datas[i][1]) + (1000 * 60 * 60);
+                        datas[i][1] = parseFloat(tmp);
+                    }
+                    console.log(datas);
+                    chartConfig.series.push({"name" : "full data", "data": datas});
+                }
+            },
+            getConfig: function () {
+              return chartConfig;
+            }
+        };
+    });

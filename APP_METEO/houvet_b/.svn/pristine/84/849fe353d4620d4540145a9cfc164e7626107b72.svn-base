@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/antoine/Documents/ETNA/APP_METEO/AppMeteo/platforms/android/build/intermediates/res/merged/debug/mipmap-hdpi/icon.png",
+        "source": "/Users/antoine/Documents/ETNA/APP_METEO/AppMeteo/platforms/android/res/mipmap-hdpi/icon.png"
+    },
+    {
+        "merged": "/Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/android/build/intermediates/res/merged/debug/mipmap-hdpi/icon.png",
+        "source": "/Users/antoine/Documents/ETNA/APP_METEO/houvet_b/platforms/android/res/mipmap-hdpi/icon.png"
+    }
+]

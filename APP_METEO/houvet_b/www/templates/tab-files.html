@@ -1,0 +1,11 @@
+<ion-view view-title="Fichiers">
+
+<ion-content>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="file in files" type="item-text-wrap" href="#/tab/analysis/{{file.name}}">
+        <p>{{file.name}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+</ion-content>
+</ion-view>
